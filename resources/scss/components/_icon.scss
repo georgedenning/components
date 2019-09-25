@@ -1,0 +1,11 @@
+.icon {
+    display: inline-block;
+    vertical-align: middle;
+    height: 1.2rem;
+    width: 1.2rem;
+    transition: fill .1s ease-in-out;
+
+    @include themify($themes) {
+        color: themed('text');
+    }
+}

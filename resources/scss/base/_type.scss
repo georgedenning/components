@@ -1,0 +1,54 @@
+h1, h2, h3, h4 {
+    margin-bottom: .75rem;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 2.8rem;
+    line-height: 1.4;
+
+    @include respond-below(m) {
+        font-size: 2.2rem;
+    }
+}
+
+h2 {
+    font-size: 2.2rem;
+
+    @include respond-below(m) {
+        font-size: 1.8rem;
+    }
+}
+
+h3 {
+    font-size: 1.8rem;
+
+    @include respond-below(m) {
+        font-size: 1.4rem;
+    }
+}
+
+h4 {
+    font-size: 1.4rem;
+
+    @include respond-below(m) {
+        font-size: 1.3rem;
+    }
+}
+
+p {
+    font-size: inherit;
+    margin-bottom: 1rem;
+}
+
+a {
+    text-decoration: none;
+    @include themify($themes) {
+        color: themed('text');
+    }
+    &:hover {
+        @include themify($themes) {
+            color: themed('primary');
+        }
+    }
+}

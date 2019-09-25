@@ -1,0 +1,19 @@
+.button {
+    border-radius: 100px;
+    border: none;
+    padding: .6rem 1.2rem;
+    font-size: 1rem;
+    transition: all .1s ease-in-out;
+
+    @include themify($themes) {
+        color: themed('white');
+        background: themed('primary');
+    }
+
+    &:hover {
+        @include themify($themes) {
+            color: themed('white');
+            background: themed('primary');
+        }
+    }
+}

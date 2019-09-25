@@ -1,0 +1,52 @@
+$themes: (
+    light: (
+        primary: #ED1757,
+        background: #F4F5F9,
+        text: #1C1E26,
+        success: #CDF2D6,
+        danger: #FFD8DC,
+        info: #CDDFF2,
+        warning: #FFF4D6,
+    ),
+    dark: (
+        primary: #D74F6F,
+        background: #1C1E26,
+        text: #E6E8F2,
+        success: #3F7F4E,
+        danger: #994C54,
+        info: #2D6199,
+        warning: #8C7B4A,
+    ),
+);
+
+@mixin themify($themes) {
+    @each $theme, $map in $themes {
+        .theme-#{$theme} & {
+            $theme-map: () !global;
+            @each $key, $submap in $map {
+                $value: map-get(map-get($themes, $theme), '#{$key}');
+                $theme-map: map-merge($theme-map, ($key: $value)) !global;
+            }
+            @content;
+            $theme-map: null !global;
+        }
+    }
+}
+
+@function themed($key) {
+    @return map-get($theme-map, $key);
+}
+
+@each $theme, $colours in $themes {
+    @each $name, $hex in $colours {
+        .theme-#{$theme} .colour-#{$name} {
+            color: $hex;
+        }
+        .theme-#{$theme} .background-#{$name} {
+            background: $hex;
+        }
+        .theme-#{$theme} .border-colour-#{$name} {
+            border-color: $hex;
+        }
+    }
+}

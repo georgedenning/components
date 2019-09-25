@@ -1,0 +1,33 @@
+// A map of breakpoints.
+$breakpoints: (
+    xs: 375px,
+    s: 768px,
+    m: 1024px,
+    l: 1200px,
+    xl: 1400px,
+    xxl: 2000px
+);
+
+// Respond below.
+@mixin respond-below($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        $breakpoint-value: map-get($breakpoints, $breakpoint);
+        @media (max-width: ($breakpoint-value - 1)) {
+            @content;
+        }
+    } @else {
+        @warn 'Invalid breakpoint: #{$breakpoint}.';
+    }
+}
+
+// Respond above.
+@mixin respond-above($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        $breakpoint-value: map-get($breakpoints, $breakpoint);
+        @media (min-width: $breakpoint-value) {
+            @content;
+        }
+    } @else {
+        @warn 'Invalid breakpoint: #{$breakpoint}.';
+    }
+}
