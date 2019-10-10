@@ -1,21 +1,23 @@
 $themes: (
     light: (
-        primary: #ED1757,
+        primary: #b800bb,
         background: #F4F5F9,
+        background-darker: #EBEDF1,
         text: #1C1E26,
-        success: #CDF2D6,
-        danger: #FFD8DC,
-        info: #CDDFF2,
-        warning: #FFF4D6,
+        success: #2dbb50,
+        danger: #e03159,
+        info: #0e74de,
+        warning: #e2b22d,
     ),
     dark: (
-        primary: #D74F6F,
+        primary: #BB29BB,
         background: #1C1E26,
+        background-darker: #222531,
         text: #E6E8F2,
-        success: #3F7F4E,
-        danger: #994C54,
-        info: #2D6199,
-        warning: #8C7B4A,
+        success: #4ead65,
+        danger: #D74F6F,
+        info: #2787EC,
+        warning: #cca947,
     ),
 );
 

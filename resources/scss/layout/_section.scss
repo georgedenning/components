@@ -1,6 +1,6 @@
 section {
     position: relative;
-    padding: 5rem 8rem;
+    padding: 3rem 5rem;
     @include themify($themes) {
         color: themed('text');
         background: themed('background');

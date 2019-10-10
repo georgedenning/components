@@ -1,8 +1,13 @@
 code {
     display: inline-block;
     vertical-align: middle;
-    font-size: .9rem;
+    font-size: .83rem;
     padding: 0 .4rem;
+    border-radius: .2rem;
     line-height: 1.7;
-    background: #eee;
+    font-family: monospace;
+    margin-bottom: .2rem;
+    @include themify($themes) {
+        background: themed('background-darker');
+    }
 }
