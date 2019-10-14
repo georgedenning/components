@@ -55,7 +55,7 @@ module.exports = (env, argv) => {
             main: './webpack.build.js'
         },
         output: {
-            path: path.resolve(__dirname, 'assets'),
+            path: path.resolve(__dirname, 'asset'),
             filename: PROD ? 'js/main.min.js' : 'js/main.js',
         },
         module: {

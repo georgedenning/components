@@ -1,0 +1,15 @@
+.symbol {
+    display: block;
+    margin-bottom: .2rem;
+    width: 100%;
+    &:before {
+        display: block;
+        padding-top: 100%;
+    }
+    &-rounded {
+        border-radius: .2rem;
+    }
+    &-circle {
+        border-radius: 100px;
+    }
+}

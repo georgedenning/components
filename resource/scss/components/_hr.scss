@@ -1,0 +1,8 @@
+hr {
+    display: block;
+    width: 100%;
+    height: 1px;
+    @include themify($themes) {
+        background: darken(themed('background'), 5%);
+    }
+}

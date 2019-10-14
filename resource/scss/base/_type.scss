@@ -1,0 +1,60 @@
+h1, h2, h3, h4 {
+    margin-bottom: .5rem;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 2.8rem;
+    font-weight: lighter;
+
+    @include respond-below(m) {
+        font-size: 2.2rem;
+    }
+}
+
+h2 {
+    font-size: 2.2rem;
+    font-weight: lighter;
+    margin-bottom: .6rem;
+
+    @include respond-below(m) {
+        font-size: 1.8rem;
+    }
+}
+
+h3 {
+    font-size: 1.8rem;
+    font-weight: normal;
+    margin-bottom: .7rem;
+
+    @include respond-below(m) {
+        font-size: 1.4rem;
+    }
+}
+
+h4 {
+    font-size: 1.4rem;
+    font-weight: normal;
+
+    @include respond-below(m) {
+        font-size: 1.3rem;
+    }
+}
+
+p {
+    font-size: 1rem;
+    font-weight: normal;
+    margin-bottom: .7rem;
+}
+
+a {
+    text-decoration: none;
+    @include themify($themes) {
+        color: themed('text');
+    }
+    &:hover {
+        @include themify($themes) {
+            color: themed('primary');
+        }
+    }
+}

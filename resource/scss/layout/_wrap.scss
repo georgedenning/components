@@ -1,0 +1,10 @@
+.wrap {
+    display: block;
+    font-size: 0;
+
+    &-half {
+        display: inline-block;
+        width: 50%;
+        font-size: 1rem;
+    }
+}
