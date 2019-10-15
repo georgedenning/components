@@ -6534,6 +6534,18 @@ eval("\n\n//# sourceURL=webpack:///./resource/icon/zoom-to-fit.svg?");
 
 /***/ }),
 
+/***/ "./resource/js/Filter.js":
+/*!*******************************!*\
+  !*** ./resource/js/Filter.js ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Filter; });\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n\nclass Filter {\n  constructor() {\n    jquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-filter').each((i, section) => {\n      const $input = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<input/>', {\n        'type': 'search'\n      });\n      $input.insertBefore(jquery__WEBPACK_IMPORTED_MODULE_0___default()(section));\n      const $items = jquery__WEBPACK_IMPORTED_MODULE_0___default()(section).find('li');\n      $input.on('keyup', e => {\n        const value = $input.val().toLowerCase();\n        const terms = value.split(' ').filter(Boolean);\n        this.filter(terms, $items);\n      });\n    });\n  }\n\n  filter(terms, $items) {\n    if (!terms || terms.length < 1) {\n      $items.attr('data-active', true);\n      return false;\n    }\n\n    $items.each((i, item) => {\n      item.dataset.active = this.match(terms, item);\n    });\n  }\n\n  match(terms, item) {\n    let matchCount = 0;\n    [...terms].forEach(term => {\n      if (item.dataset.keywords.includes(term)) {\n        matchCount++;\n      }\n    });\n    return matchCount === terms.length;\n  }\n\n}\n\n//# sourceURL=webpack:///./resource/js/Filter.js?");
+
+/***/ }),
+
 /***/ "./resource/js/Icons.js":
 /*!******************************!*\
   !*** ./resource/js/Icons.js ***!
@@ -6554,7 +6566,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return View; });\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n\nclass View {\n  constructor(element) {\n    this.container = element;\n\n    if (!this.container.dataset.view) {\n      return false;\n    }\n\n    this.section = this.container.dataset.view;\n  }\n\n  load(callback) {\n    jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.container).load('/resource/view/' + this.section + '.html', () => {\n      this.container.dataset.loaded = 'true';\n      callback();\n    });\n  }\n\n}\n\n//# sourceURL=webpack:///./resource/js/View.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return View; });\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n\nclass View {\n  constructor(element) {\n    this.container = element;\n\n    if (!this.container.dataset.view) {\n      return false;\n    }\n\n    this.section = this.container.dataset.view;\n    this.setState('waiting');\n  }\n\n  render() {\n    return new Promise(resolve => {\n      jquery__WEBPACK_IMPORTED_MODULE_0___default()(this.container).load('/resource/view/' + this.section + '.html', response => {\n        this.setState('loaded');\n        resolve(response);\n      });\n    });\n  }\n\n  setState(state) {\n    this.container.dataset.state = state;\n  }\n\n}\n\n//# sourceURL=webpack:///./resource/js/View.js?");
 
 /***/ }),
 
@@ -6566,7 +6578,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Views; });\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _View__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./View */ \"./resource/js/View.js\");\n\n\nclass Views {\n  constructor() {\n    this.loaded = [];\n    this.loadAll();\n  }\n\n  loadAll() {\n    jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-view]').each((i, e) => {\n      const view = new _View__WEBPACK_IMPORTED_MODULE_1__[\"default\"](e);\n\n      if (view instanceof _View__WEBPACK_IMPORTED_MODULE_1__[\"default\"] && !this.loaded.includes(view.section)) {\n        view.load(() => {\n          this.loaded.push(view.section);\n          this.loadAll();\n        });\n      }\n    });\n  }\n\n}\n\n//# sourceURL=webpack:///./resource/js/Views.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Views; });\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _View__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./View */ \"./resource/js/View.js\");\n\n\nclass Views {\n  constructor() {\n    this.loaded = [];\n    this.load();\n  }\n\n  render() {\n    return new Promise(resolve => {\n      Promise.all(this.loaded).then(() => {\n        jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ajaxStop(event => {\n          resolve();\n        });\n      });\n    });\n  }\n\n  load() {\n    new Promise(resolve => {\n      this.getWaiting().each((i, item) => {\n        const load = new _View__WEBPACK_IMPORTED_MODULE_1__[\"default\"](item).render();\n        load.then(response => this.load());\n        resolve(this.loaded.push(load));\n      });\n    });\n  }\n\n  getWaiting() {\n    return jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-view]:not([data-state=\"loaded\"]):not([data-state=\"waiting\"])');\n  }\n\n}\n\n//# sourceURL=webpack:///./resource/js/Views.js?");
 
 /***/ }),
 
@@ -6578,7 +6590,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _Views__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Views */ \"./resource/js/Views.js\");\n/* harmony import */ var _Icons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Icons */ \"./resource/js/Icons.js\");\n\n\n\njquery__WEBPACK_IMPORTED_MODULE_0___default()(() => {\n  window.Views = new _Views__WEBPACK_IMPORTED_MODULE_1__[\"default\"]();\n  window.Icons = new _Icons__WEBPACK_IMPORTED_MODULE_3__[\"default\"]();\n});\n\n//# sourceURL=webpack:///./resource/js/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Views__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Views */ \"./resource/js/Views.js\");\n/* harmony import */ var _Icons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Icons */ \"./resource/js/Icons.js\");\n/* harmony import */ var _Filter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Filter */ \"./resource/js/Filter.js\");\n\n\n\nnew _Views__WEBPACK_IMPORTED_MODULE_0__[\"default\"]().render().then(results => {\n  window.Icons = new _Icons__WEBPACK_IMPORTED_MODULE_1__[\"default\"]();\n  window.Filter = new _Filter__WEBPACK_IMPORTED_MODULE_2__[\"default\"]();\n});\n\n//# sourceURL=webpack:///./resource/js/main.js?");
 
 /***/ }),
 

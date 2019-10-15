@@ -1,0 +1,23 @@
+.section-iconography {
+    ul {
+        display: block;
+        font-size: 0;
+    }
+    li {
+        display: inline-block;
+        vertical-align: top;
+        width: 20%;
+        padding: 2rem 1rem;
+        text-align: center;
+        span {
+            display: block;
+            font-size: .6rem;
+            white-space: nowrap;
+            margin-top: .3rem;
+        }
+        svg {
+            height: 1.2rem;
+            width: 1.2rem;
+        }
+    }
+}

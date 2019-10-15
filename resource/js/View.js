@@ -7,11 +7,17 @@ export default class View {
             return false;
         }
         this.section = this.container.dataset.view;
+        this.setState('waiting');
     }
-    load(callback) {
-        $(this.container).load('/resource/view/' + this.section + '.html', () => {
-            this.container.dataset.loaded = 'true';
-            callback();
+    render() {
+        return new Promise(resolve => {
+            $(this.container).load('/resource/view/' + this.section + '.html', response => {
+                this.setState('loaded');
+                resolve(response);
+            });
         });
+    }
+    setState(state) {
+        this.container.dataset.state = state;
     }
 }

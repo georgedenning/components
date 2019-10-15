@@ -293,8 +293,12 @@ section {
   font-size: 0; }
   .wrap-half {
     display: inline-block;
+    vertical-align: top;
     width: 50%;
     font-size: 1rem; }
+
+.section-filter li[data-active=false] {
+  display: none; }
 
 .section-colours ul {
   display: flex;
@@ -306,6 +310,25 @@ section {
 .section-colours li {
   flex: 1 0;
   margin: 0 1rem; }
+
+.section-iconography ul {
+  display: block;
+  font-size: 0; }
+
+.section-iconography li {
+  display: inline-block;
+  vertical-align: top;
+  width: 20%;
+  padding: 2rem 1rem;
+  text-align: center; }
+  .section-iconography li span {
+    display: block;
+    font-size: .6rem;
+    white-space: nowrap;
+    margin-top: .3rem; }
+  .section-iconography li svg {
+    height: 1.2rem;
+    width: 1.2rem; }
 
 code {
   display: inline-block;
@@ -321,7 +344,7 @@ code {
   .theme-dark code {
     background: #16171d; }
 
-label {
+label, .label {
   display: inline-block;
   vertical-align: middle;
   text-transform: uppercase;
