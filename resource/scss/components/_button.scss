@@ -1,19 +1,354 @@
-.button {
-    border-radius: 100px;
-    border: none;
-    padding: .6rem 1.2rem;
-    font-size: 1rem;
-    transition: all .1s ease-in-out;
-
+button, .button {
+    cursor: pointer;
+	padding: .6em 1.2em;
+	font-size: 1rem;
+	font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+	min-width: 5em;
+    border-radius: .2em;
+	outline: none;
+	transition: all .15s ease-in-out;
+	border: 1px solid transparent;
     @include themify($themes) {
-        color: themed('white');
-        background: themed('primary');
+        color: themed('text-faded');
+        background: darken(themed('background'), 5%);
     }
-
-    &:hover {
+	&:focus {
+		outline: none;
+	}
+	&:disabled, &[disabled] {
+		pointer-events: none;
+		opacity: 0.5;
+	}
+	&:hover:not(:disabled):not([disabled]) {
         @include themify($themes) {
-            color: themed('white');
-            background: themed('primary');
+            background: darken(themed('background'), 7%);
+        }
+	}
+	&:active:not(:disabled):not([disabled]) {
+        @include themify($themes) {
+            background: darken(themed('background'), 10%);
         }
     }
+
+    /**
+     * Intent
+     */
+    &[data-intent=primary] {
+        @include themify($themes) {
+            color: themed('primary');
+        }
+        &:hover:not(:disabled):not([disabled]) {
+            @include themify($themes) {
+                color: lighten(themed('primary'), 5%);
+            }
+        }
+        &:active:not(:disabled):not([disabled]) {
+            @include themify($themes) {
+                color: lighten(themed('primary'), 7%);
+            }
+        }
+    }
+    &[data-intent=success] {
+        @include themify($themes) {
+            color: themed('success');
+        }
+        &:hover:not(:disabled):not([disabled]) {
+            @include themify($themes) {
+                color: lighten(themed('success'), 5%);
+            }
+        }
+        &:active:not(:disabled):not([disabled]) {
+            @include themify($themes) {
+                color: lighten(themed('success'), 7%);
+            }
+        }
+    }
+    &[data-intent=danger] {
+        @include themify($themes) {
+            color: themed('danger');
+        }
+        &:hover:not(:disabled):not([disabled]) {
+            @include themify($themes) {
+                color: lighten(themed('danger'), 5%);
+            }
+        }
+        &:active:not(:disabled):not([disabled]) {
+            @include themify($themes) {
+                color: lighten(themed('danger'), 7%);
+            }
+        }
+    }
+    &[data-intent=info] {
+        @include themify($themes) {
+            color: themed('info');
+        }
+        &:hover:not(:disabled):not([disabled]) {
+            @include themify($themes) {
+                color: lighten(themed('info'), 5%);
+            }
+        }
+        &:active:not(:disabled):not([disabled]) {
+            @include themify($themes) {
+                color: lighten(themed('info'), 7%);
+            }
+        }
+    }
+    &[data-intent=warning] {
+        @include themify($themes) {
+            color: themed('warning');
+        }
+        &:hover:not(:disabled):not([disabled]) {
+            @include themify($themes) {
+                color: lighten(themed('warning'), 5%);
+            }
+        }
+        &:active:not(:disabled):not([disabled]) {
+            @include themify($themes) {
+                color: lighten(themed('warning'), 7%);
+            }
+        }
+    }
+
+    /**
+     * Style
+     */
+    &[data-style=fill] {
+        &[data-intent=default] {
+            @include themify($themes) {
+                color: rgba(themed('background'), 0.8);
+                background: darken(themed('text'), 5%);
+            }
+            &:hover:not(:disabled):not([disabled]) {
+                @include themify($themes) {
+                    color: rgba(themed('background'), 0.9);
+                    background: themed('text');
+                }
+            }
+            &:active:not(:disabled):not([disabled]) {
+                @include themify($themes) {
+                    color: rgba(themed('background'), 0.9);
+                    background: lighten(themed('text'), 13%);
+                }
+            }
+        }
+        &[data-intent=primary] {
+            @include themify($themes) {
+                color: lighten(themed('primary'), 60%);
+                background: darken(themed('primary'), 5%);
+            }
+            &:hover:not(:disabled):not([disabled]) {
+                @include themify($themes) {
+                    color: lighten(themed('primary'), 60%);
+                    background: themed('primary');
+                }
+            }
+            &:active:not(:disabled):not([disabled]) {
+                @include themify($themes) {
+                    color: lighten(themed('primary'), 60%);
+                    background: lighten(themed('primary'), 5%);
+                }
+            }
+        }
+        &[data-intent=success] {
+            @include themify($themes) {
+                color: lighten(themed('success'), 60%);
+                background: darken(themed('success'), 5%);
+            }
+            &:hover:not(:disabled):not([disabled]) {
+                @include themify($themes) {
+                    color: lighten(themed('success'), 60%);
+                    background: themed('success');
+                }
+            }
+            &:active:not(:disabled):not([disabled]) {
+                @include themify($themes) {
+                    color: lighten(themed('success'), 60%);
+                    background: lighten(themed('success'), 5%);
+                }
+            }
+        }
+        &[data-intent=danger] {
+            @include themify($themes) {
+                color: lighten(themed('danger'), 60%);
+                background: darken(themed('danger'), 5%);
+            }
+            &:hover:not(:disabled):not([disabled]) {
+                @include themify($themes) {
+                    color: lighten(themed('danger'), 60%);
+                    background: themed('danger');
+                }
+            }
+            &:active:not(:disabled):not([disabled]) {
+                @include themify($themes) {
+                    color: lighten(themed('danger'), 60%);
+                    background: lighten(themed('danger'), 5%);
+                }
+            }
+        }
+        &[data-intent=info] {
+            @include themify($themes) {
+                color: lighten(themed('info'), 60%);
+                background: darken(themed('info'), 5%);
+            }
+            &:hover:not(:disabled):not([disabled]) {
+                @include themify($themes) {
+                    color: lighten(themed('info'), 60%);
+                    background: themed('info');
+                }
+            }
+            &:active:not(:disabled):not([disabled]) {
+                @include themify($themes) {
+                    color: lighten(themed('info'), 60%);
+                    background: lighten(themed('info'), 5%);
+                }
+            }
+        }
+        &[data-intent=warning] {
+            @include themify($themes) {
+                color: lighten(themed('warning'), 60%);
+                background: darken(themed('warning'), 5%);
+            }
+            &:hover:not(:disabled):not([disabled]) {
+                @include themify($themes) {
+                    color: lighten(themed('warning'), 60%);
+                    background: themed('warning');
+                }
+            }
+            &:active:not(:disabled):not([disabled]) {
+                @include themify($themes) {
+                    color: lighten(themed('warning'), 60%);
+                    background: lighten(themed('warning'), 5%);
+                }
+            }
+        }
+    }
+    &[data-style=minimal] {
+        &[data-intent=default] {
+            @include themify($themes) {
+                background: rgba(darken(themed('background'), 70%), .05);
+            }
+            &:hover:not(:disabled):not([disabled]) {
+                @include themify($themes) {
+                    border-color: rgba(themed('text'), .15);
+                    background: rgba(darken(themed('background'), 70%), .05);
+                }
+            }
+            &:active:not(:disabled):not([disabled]) {
+                @include themify($themes) {
+                    border-color: rgba(themed('text'), .15);
+                    background: rgba(darken(themed('background'), 70%), .05);
+                }
+            }
+        }
+        &[data-intent=primary] {
+            @include themify($themes) {
+                background: rgba(themed('primary'), .1);
+            }
+            &:hover:not(:disabled):not([disabled]) {
+                @include themify($themes) {
+                    border-color: rgba(themed('primary'), .3);
+                    background: rgba(themed('primary'), .1);
+                }
+            }
+            &:active:not(:disabled):not([disabled]) {
+                @include themify($themes) {
+                    border-color: rgba(themed('primary'), .4);
+                    background: rgba(themed('primary'), .1);
+                }
+            }
+        }
+        &[data-intent=success] {
+            @include themify($themes) {
+                background: rgba(themed('success'), .1);
+            }
+            &:hover:not(:disabled):not([disabled]) {
+                @include themify($themes) {
+                    border-color: rgba(themed('success'), .3);
+                    background: rgba(themed('success'), .1);
+                }
+            }
+            &:active:not(:disabled):not([disabled]) {
+                @include themify($themes) {
+                    border-color: rgba(themed('success'), .4);
+                    background: rgba(themed('success'), .1);
+                }
+            }
+        }
+        &[data-intent=danger] {
+            @include themify($themes) {
+                background: rgba(themed('danger'), .1);
+            }
+            &:hover:not(:disabled):not([disabled]) {
+                @include themify($themes) {
+                    border-color: rgba(themed('danger'), .3);
+                    background: rgba(themed('danger'), .1);
+                }
+            }
+            &:active:not(:disabled):not([disabled]) {
+                @include themify($themes) {
+                    border-color: rgba(themed('danger'), .4);
+                    background: rgba(themed('danger'), .1);
+                }
+            }
+        }
+        &[data-intent=info] {
+            @include themify($themes) {
+                background: rgba(themed('info'), .1);
+            }
+            &:hover:not(:disabled):not([disabled]) {
+                @include themify($themes) {
+                    border-color: rgba(themed('info'), .3);
+                    background: rgba(themed('info'), .1);
+                }
+            }
+            &:active:not(:disabled):not([disabled]) {
+                @include themify($themes) {
+                    border-color: rgba(themed('info'), .4);
+                    background: rgba(themed('info'), .1);
+                }
+            }
+        }
+        &[data-intent=warning] {
+            @include themify($themes) {
+                background: rgba(themed('warning'), .1);
+            }
+            &:hover:not(:disabled):not([disabled]) {
+                @include themify($themes) {
+                    border-color: rgba(themed('warning'), .3);
+                    background: rgba(themed('warning'), .1);
+                }
+            }
+            &:active:not(:disabled):not([disabled]) {
+                @include themify($themes) {
+                    border-color: rgba(themed('warning'), .4);
+                    background: rgba(themed('warning'), .1);
+                }
+            }
+        }
+    }
+
+    /**
+     * Size
+     */
+    &[data-size=tiny] {
+        font-size: .6rem;
+        text-transform: uppercase;
+        letter-spacing: .15em;
+        font-weight: bold;
+	}
+    &[data-size=small] {
+		font-size: .83rem;
+    }
+    &[data-size=medium] {
+		font-size: 1rem;
+	}
+	&[data-size=large] {
+		font-size: 1.2rem;
+    }
+	&[data-size=massive] {
+        font-size: 1.8rem;
+        font-weight: 300;
+	}
 }

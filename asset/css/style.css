@@ -278,15 +278,17 @@ a {
   .theme-dark a:hover {
     color: #BB29BB; }
 
-section {
+section, .section {
   position: relative;
   padding: 3rem 5rem; }
-  .theme-light section {
+  .theme-light section, .theme-light .section {
     color: #1C1E26;
     background: #F4F5F9; }
-  .theme-dark section {
+  .theme-dark section, .theme-dark .section {
     color: #E6E8F2;
     background: #1C1E26; }
+  section-wrap, .section-wrap {
+    margin: 2rem 0 4rem; }
 
 .wrap {
   display: block;
@@ -313,7 +315,12 @@ section {
 
 .section-iconography ul {
   display: block;
-  font-size: 0; }
+  font-size: 0;
+  padding: 2rem; }
+  .theme-light .section-iconography ul {
+    background: #e4e6f0; }
+  .theme-dark .section-iconography ul {
+    background: #111217; }
 
 .section-iconography li {
   display: inline-block;
@@ -323,12 +330,25 @@ section {
   text-align: center; }
   .section-iconography li span {
     display: block;
-    font-size: .6rem;
+    font-size: .7rem;
     white-space: nowrap;
     margin-top: .3rem; }
   .section-iconography li svg {
-    height: 1.2rem;
-    width: 1.2rem; }
+    height: 2rem;
+    width: 2rem; }
+
+.section-buttons ul {
+  display: flex;
+  flex-direction: row;
+  width: calc(100% + 1rem);
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+  margin-bottom: 2rem;
+  justify-content: flex-start; }
+
+.section-buttons li {
+  flex: 0 1 auto;
+  margin: 0 .5rem; }
 
 code {
   display: inline-block;
@@ -364,20 +384,324 @@ label, .label {
   .theme-dark .icon {
     fill: #b2b4c5; }
 
-.button {
-  border-radius: 100px;
-  border: none;
-  padding: .6rem 1.2rem;
+button, .button {
+  cursor: pointer;
+  padding: .6em 1.2em;
   font-size: 1rem;
-  transition: all .1s ease-in-out; }
-  .theme-light .button {
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  min-width: 5em;
+  border-radius: .2em;
+  outline: none;
+  transition: all .15s ease-in-out;
+  border: 1px solid transparent;
+  /**
+     * Intent
+     */
+  /**
+     * Style
+     */
+  /**
+     * Size
+     */ }
+  .theme-light button, .theme-light .button {
+    color: #545561;
+    background: #e4e6f0; }
+  .theme-dark button, .theme-dark .button {
+    color: #b2b4c5;
+    background: #111217; }
+  button:focus, .button:focus {
+    outline: none; }
+  button:disabled, button[disabled], .button:disabled, .button[disabled] {
+    pointer-events: none;
+    opacity: 0.5; }
+  .theme-light button:hover:not(:disabled):not([disabled]), .theme-light .button:hover:not(:disabled):not([disabled]) {
+    background: #dde0ec; }
+  .theme-dark button:hover:not(:disabled):not([disabled]), .theme-dark .button:hover:not(:disabled):not([disabled]) {
+    background: #0d0e11; }
+  .theme-light button:active:not(:disabled):not([disabled]), .theme-light .button:active:not(:disabled):not([disabled]) {
+    background: #d3d7e7; }
+  .theme-dark button:active:not(:disabled):not([disabled]), .theme-dark .button:active:not(:disabled):not([disabled]) {
+    background: #060709; }
+  .theme-light button[data-intent=primary], .theme-light .button[data-intent=primary] {
+    color: #b800bb; }
+  .theme-dark button[data-intent=primary], .theme-dark .button[data-intent=primary] {
+    color: #BB29BB; }
+  .theme-light button[data-intent=primary]:hover:not(:disabled):not([disabled]), .theme-light .button[data-intent=primary]:hover:not(:disabled):not([disabled]) {
+    color: #d100d5; }
+  .theme-dark button[data-intent=primary]:hover:not(:disabled):not([disabled]), .theme-dark .button[data-intent=primary]:hover:not(:disabled):not([disabled]) {
+    color: #d02ed0; }
+  .theme-light button[data-intent=primary]:active:not(:disabled):not([disabled]), .theme-light .button[data-intent=primary]:active:not(:disabled):not([disabled]) {
+    color: #db00df; }
+  .theme-dark button[data-intent=primary]:active:not(:disabled):not([disabled]), .theme-dark .button[data-intent=primary]:active:not(:disabled):not([disabled]) {
+    color: #d335d3; }
+  .theme-light button[data-intent=success], .theme-light .button[data-intent=success] {
+    color: #2dbb50; }
+  .theme-dark button[data-intent=success], .theme-dark .button[data-intent=success] {
+    color: #4ead65; }
+  .theme-light button[data-intent=success]:hover:not(:disabled):not([disabled]), .theme-light .button[data-intent=success]:hover:not(:disabled):not([disabled]) {
+    color: #33ce5a; }
+  .theme-dark button[data-intent=success]:hover:not(:disabled):not([disabled]), .theme-dark .button[data-intent=success]:hover:not(:disabled):not([disabled]) {
+    color: #5eb673; }
+  .theme-light button[data-intent=success]:active:not(:disabled):not([disabled]), .theme-light .button[data-intent=success]:active:not(:disabled):not([disabled]) {
+    color: #3cd060; }
+  .theme-dark button[data-intent=success]:active:not(:disabled):not([disabled]), .theme-dark .button[data-intent=success]:active:not(:disabled):not([disabled]) {
+    color: #65ba7a; }
+  .theme-light button[data-intent=danger], .theme-light .button[data-intent=danger] {
+    color: #e03159; }
+  .theme-dark button[data-intent=danger], .theme-dark .button[data-intent=danger] {
+    color: #D74F6F; }
+  .theme-light button[data-intent=danger]:hover:not(:disabled):not([disabled]), .theme-light .button[data-intent=danger]:hover:not(:disabled):not([disabled]) {
+    color: #e3476b; }
+  .theme-dark button[data-intent=danger]:hover:not(:disabled):not([disabled]), .theme-dark .button[data-intent=danger]:hover:not(:disabled):not([disabled]) {
+    color: #dc6480; }
+  .theme-light button[data-intent=danger]:active:not(:disabled):not([disabled]), .theme-light .button[data-intent=danger]:active:not(:disabled):not([disabled]) {
+    color: #e55072; }
+  .theme-dark button[data-intent=danger]:active:not(:disabled):not([disabled]), .theme-dark .button[data-intent=danger]:active:not(:disabled):not([disabled]) {
+    color: #de6c87; }
+  .theme-light button[data-intent=info], .theme-light .button[data-intent=info] {
+    color: #0e74de; }
+  .theme-dark button[data-intent=info], .theme-dark .button[data-intent=info] {
+    color: #2787EC; }
+  .theme-light button[data-intent=info]:hover:not(:disabled):not([disabled]), .theme-light .button[data-intent=info]:hover:not(:disabled):not([disabled]) {
+    color: #1581f0; }
+  .theme-dark button[data-intent=info]:hover:not(:disabled):not([disabled]), .theme-dark .button[data-intent=info]:hover:not(:disabled):not([disabled]) {
+    color: #3e94ee; }
+  .theme-light button[data-intent=info]:active:not(:disabled):not([disabled]), .theme-light .button[data-intent=info]:active:not(:disabled):not([disabled]) {
+    color: #1f86f1; }
+  .theme-dark button[data-intent=info]:active:not(:disabled):not([disabled]), .theme-dark .button[data-intent=info]:active:not(:disabled):not([disabled]) {
+    color: #4899ef; }
+  .theme-light button[data-intent=warning], .theme-light .button[data-intent=warning] {
+    color: #e2b22d; }
+  .theme-dark button[data-intent=warning], .theme-dark .button[data-intent=warning] {
+    color: #cca947; }
+  .theme-light button[data-intent=warning]:hover:not(:disabled):not([disabled]), .theme-light .button[data-intent=warning]:hover:not(:disabled):not([disabled]) {
+    color: #e5ba43; }
+  .theme-dark button[data-intent=warning]:hover:not(:disabled):not([disabled]), .theme-dark .button[data-intent=warning]:hover:not(:disabled):not([disabled]) {
+    color: #d2b25b; }
+  .theme-light button[data-intent=warning]:active:not(:disabled):not([disabled]), .theme-light .button[data-intent=warning]:active:not(:disabled):not([disabled]) {
+    color: #e6be4c; }
+  .theme-dark button[data-intent=warning]:active:not(:disabled):not([disabled]), .theme-dark .button[data-intent=warning]:active:not(:disabled):not([disabled]) {
+    color: #d4b663; }
+  .theme-light button[data-style=fill][data-intent=default], .theme-light .button[data-style=fill][data-intent=default] {
+    color: rgba(244, 245, 249, 0.8);
+    background: #111217; }
+  .theme-dark button[data-style=fill][data-intent=default], .theme-dark .button[data-style=fill][data-intent=default] {
+    color: rgba(28, 30, 38, 0.8);
+    background: #d5d9e9; }
+  .theme-light button[data-style=fill][data-intent=default]:hover:not(:disabled):not([disabled]), .theme-light .button[data-style=fill][data-intent=default]:hover:not(:disabled):not([disabled]) {
+    color: rgba(244, 245, 249, 0.9);
+    background: #1C1E26; }
+  .theme-dark button[data-style=fill][data-intent=default]:hover:not(:disabled):not([disabled]), .theme-dark .button[data-style=fill][data-intent=default]:hover:not(:disabled):not([disabled]) {
+    color: rgba(28, 30, 38, 0.9);
+    background: #E6E8F2; }
+  .theme-light button[data-style=fill][data-intent=default]:active:not(:disabled):not([disabled]), .theme-light .button[data-style=fill][data-intent=default]:active:not(:disabled):not([disabled]) {
+    color: rgba(244, 245, 249, 0.9);
+    background: #383c4c; }
+  .theme-dark button[data-style=fill][data-intent=default]:active:not(:disabled):not([disabled]), .theme-dark .button[data-style=fill][data-intent=default]:active:not(:disabled):not([disabled]) {
+    color: rgba(28, 30, 38, 0.9);
+    background: white; }
+  .theme-light button[data-style=fill][data-intent=primary], .theme-light .button[data-style=fill][data-intent=primary] {
+    color: #ffeeff;
+    background: #9f00a2; }
+  .theme-dark button[data-style=fill][data-intent=primary], .theme-dark .button[data-style=fill][data-intent=primary] {
+    color: white;
+    background: #a624a6; }
+  .theme-light button[data-style=fill][data-intent=primary]:hover:not(:disabled):not([disabled]), .theme-light .button[data-style=fill][data-intent=primary]:hover:not(:disabled):not([disabled]) {
+    color: #ffeeff;
     background: #b800bb; }
-  .theme-dark .button {
+  .theme-dark button[data-style=fill][data-intent=primary]:hover:not(:disabled):not([disabled]), .theme-dark .button[data-style=fill][data-intent=primary]:hover:not(:disabled):not([disabled]) {
+    color: white;
     background: #BB29BB; }
-  .theme-light .button:hover {
-    background: #b800bb; }
-  .theme-dark .button:hover {
-    background: #BB29BB; }
+  .theme-light button[data-style=fill][data-intent=primary]:active:not(:disabled):not([disabled]), .theme-light .button[data-style=fill][data-intent=primary]:active:not(:disabled):not([disabled]) {
+    color: #ffeeff;
+    background: #d100d5; }
+  .theme-dark button[data-style=fill][data-intent=primary]:active:not(:disabled):not([disabled]), .theme-dark .button[data-style=fill][data-intent=primary]:active:not(:disabled):not([disabled]) {
+    color: white;
+    background: #d02ed0; }
+  .theme-light button[data-style=fill][data-intent=success], .theme-light .button[data-style=fill][data-intent=success] {
+    color: white;
+    background: #28a647; }
+  .theme-dark button[data-style=fill][data-intent=success], .theme-dark .button[data-style=fill][data-intent=success] {
+    color: white;
+    background: #469b5b; }
+  .theme-light button[data-style=fill][data-intent=success]:hover:not(:disabled):not([disabled]), .theme-light .button[data-style=fill][data-intent=success]:hover:not(:disabled):not([disabled]) {
+    color: white;
+    background: #2dbb50; }
+  .theme-dark button[data-style=fill][data-intent=success]:hover:not(:disabled):not([disabled]), .theme-dark .button[data-style=fill][data-intent=success]:hover:not(:disabled):not([disabled]) {
+    color: white;
+    background: #4ead65; }
+  .theme-light button[data-style=fill][data-intent=success]:active:not(:disabled):not([disabled]), .theme-light .button[data-style=fill][data-intent=success]:active:not(:disabled):not([disabled]) {
+    color: white;
+    background: #33ce5a; }
+  .theme-dark button[data-style=fill][data-intent=success]:active:not(:disabled):not([disabled]), .theme-dark .button[data-style=fill][data-intent=success]:active:not(:disabled):not([disabled]) {
+    color: white;
+    background: #5eb673; }
+  .theme-light button[data-style=fill][data-intent=danger], .theme-light .button[data-style=fill][data-intent=danger] {
+    color: white;
+    background: #d7204a; }
+  .theme-dark button[data-style=fill][data-intent=danger], .theme-dark .button[data-style=fill][data-intent=danger] {
+    color: white;
+    background: #d23a5e; }
+  .theme-light button[data-style=fill][data-intent=danger]:hover:not(:disabled):not([disabled]), .theme-light .button[data-style=fill][data-intent=danger]:hover:not(:disabled):not([disabled]) {
+    color: white;
+    background: #e03159; }
+  .theme-dark button[data-style=fill][data-intent=danger]:hover:not(:disabled):not([disabled]), .theme-dark .button[data-style=fill][data-intent=danger]:hover:not(:disabled):not([disabled]) {
+    color: white;
+    background: #D74F6F; }
+  .theme-light button[data-style=fill][data-intent=danger]:active:not(:disabled):not([disabled]), .theme-light .button[data-style=fill][data-intent=danger]:active:not(:disabled):not([disabled]) {
+    color: white;
+    background: #e3476b; }
+  .theme-dark button[data-style=fill][data-intent=danger]:active:not(:disabled):not([disabled]), .theme-dark .button[data-style=fill][data-intent=danger]:active:not(:disabled):not([disabled]) {
+    color: white;
+    background: #dc6480; }
+  .theme-light button[data-style=fill][data-intent=info], .theme-light .button[data-style=fill][data-intent=info] {
+    color: white;
+    background: #0c67c6; }
+  .theme-dark button[data-style=fill][data-intent=info], .theme-dark .button[data-style=fill][data-intent=info] {
+    color: white;
+    background: #147ae5; }
+  .theme-light button[data-style=fill][data-intent=info]:hover:not(:disabled):not([disabled]), .theme-light .button[data-style=fill][data-intent=info]:hover:not(:disabled):not([disabled]) {
+    color: white;
+    background: #0e74de; }
+  .theme-dark button[data-style=fill][data-intent=info]:hover:not(:disabled):not([disabled]), .theme-dark .button[data-style=fill][data-intent=info]:hover:not(:disabled):not([disabled]) {
+    color: white;
+    background: #2787EC; }
+  .theme-light button[data-style=fill][data-intent=info]:active:not(:disabled):not([disabled]), .theme-light .button[data-style=fill][data-intent=info]:active:not(:disabled):not([disabled]) {
+    color: white;
+    background: #1581f0; }
+  .theme-dark button[data-style=fill][data-intent=info]:active:not(:disabled):not([disabled]), .theme-dark .button[data-style=fill][data-intent=info]:active:not(:disabled):not([disabled]) {
+    color: white;
+    background: #3e94ee; }
+  .theme-light button[data-style=fill][data-intent=warning], .theme-light .button[data-style=fill][data-intent=warning] {
+    color: white;
+    background: #d8a61e; }
+  .theme-dark button[data-style=fill][data-intent=warning], .theme-dark .button[data-style=fill][data-intent=warning] {
+    color: white;
+    background: #c39e36; }
+  .theme-light button[data-style=fill][data-intent=warning]:hover:not(:disabled):not([disabled]), .theme-light .button[data-style=fill][data-intent=warning]:hover:not(:disabled):not([disabled]) {
+    color: white;
+    background: #e2b22d; }
+  .theme-dark button[data-style=fill][data-intent=warning]:hover:not(:disabled):not([disabled]), .theme-dark .button[data-style=fill][data-intent=warning]:hover:not(:disabled):not([disabled]) {
+    color: white;
+    background: #cca947; }
+  .theme-light button[data-style=fill][data-intent=warning]:active:not(:disabled):not([disabled]), .theme-light .button[data-style=fill][data-intent=warning]:active:not(:disabled):not([disabled]) {
+    color: white;
+    background: #e5ba43; }
+  .theme-dark button[data-style=fill][data-intent=warning]:active:not(:disabled):not([disabled]), .theme-dark .button[data-style=fill][data-intent=warning]:active:not(:disabled):not([disabled]) {
+    color: white;
+    background: #d2b25b; }
+  .theme-light button[data-style=minimal][data-intent=default], .theme-light .button[data-style=minimal][data-intent=default] {
+    background: rgba(48, 56, 88, 0.05); }
+  .theme-dark button[data-style=minimal][data-intent=default], .theme-dark .button[data-style=minimal][data-intent=default] {
+    background: rgba(0, 0, 0, 0.05); }
+  .theme-light button[data-style=minimal][data-intent=default]:hover:not(:disabled):not([disabled]), .theme-light .button[data-style=minimal][data-intent=default]:hover:not(:disabled):not([disabled]) {
+    border-color: rgba(28, 30, 38, 0.15);
+    background: rgba(48, 56, 88, 0.05); }
+  .theme-dark button[data-style=minimal][data-intent=default]:hover:not(:disabled):not([disabled]), .theme-dark .button[data-style=minimal][data-intent=default]:hover:not(:disabled):not([disabled]) {
+    border-color: rgba(230, 232, 242, 0.15);
+    background: rgba(0, 0, 0, 0.05); }
+  .theme-light button[data-style=minimal][data-intent=default]:active:not(:disabled):not([disabled]), .theme-light .button[data-style=minimal][data-intent=default]:active:not(:disabled):not([disabled]) {
+    border-color: rgba(28, 30, 38, 0.15);
+    background: rgba(48, 56, 88, 0.05); }
+  .theme-dark button[data-style=minimal][data-intent=default]:active:not(:disabled):not([disabled]), .theme-dark .button[data-style=minimal][data-intent=default]:active:not(:disabled):not([disabled]) {
+    border-color: rgba(230, 232, 242, 0.15);
+    background: rgba(0, 0, 0, 0.05); }
+  .theme-light button[data-style=minimal][data-intent=primary], .theme-light .button[data-style=minimal][data-intent=primary] {
+    background: rgba(184, 0, 187, 0.1); }
+  .theme-dark button[data-style=minimal][data-intent=primary], .theme-dark .button[data-style=minimal][data-intent=primary] {
+    background: rgba(187, 41, 187, 0.1); }
+  .theme-light button[data-style=minimal][data-intent=primary]:hover:not(:disabled):not([disabled]), .theme-light .button[data-style=minimal][data-intent=primary]:hover:not(:disabled):not([disabled]) {
+    border-color: rgba(184, 0, 187, 0.3);
+    background: rgba(184, 0, 187, 0.1); }
+  .theme-dark button[data-style=minimal][data-intent=primary]:hover:not(:disabled):not([disabled]), .theme-dark .button[data-style=minimal][data-intent=primary]:hover:not(:disabled):not([disabled]) {
+    border-color: rgba(187, 41, 187, 0.3);
+    background: rgba(187, 41, 187, 0.1); }
+  .theme-light button[data-style=minimal][data-intent=primary]:active:not(:disabled):not([disabled]), .theme-light .button[data-style=minimal][data-intent=primary]:active:not(:disabled):not([disabled]) {
+    border-color: rgba(184, 0, 187, 0.4);
+    background: rgba(184, 0, 187, 0.1); }
+  .theme-dark button[data-style=minimal][data-intent=primary]:active:not(:disabled):not([disabled]), .theme-dark .button[data-style=minimal][data-intent=primary]:active:not(:disabled):not([disabled]) {
+    border-color: rgba(187, 41, 187, 0.4);
+    background: rgba(187, 41, 187, 0.1); }
+  .theme-light button[data-style=minimal][data-intent=success], .theme-light .button[data-style=minimal][data-intent=success] {
+    background: rgba(45, 187, 80, 0.1); }
+  .theme-dark button[data-style=minimal][data-intent=success], .theme-dark .button[data-style=minimal][data-intent=success] {
+    background: rgba(78, 173, 101, 0.1); }
+  .theme-light button[data-style=minimal][data-intent=success]:hover:not(:disabled):not([disabled]), .theme-light .button[data-style=minimal][data-intent=success]:hover:not(:disabled):not([disabled]) {
+    border-color: rgba(45, 187, 80, 0.3);
+    background: rgba(45, 187, 80, 0.1); }
+  .theme-dark button[data-style=minimal][data-intent=success]:hover:not(:disabled):not([disabled]), .theme-dark .button[data-style=minimal][data-intent=success]:hover:not(:disabled):not([disabled]) {
+    border-color: rgba(78, 173, 101, 0.3);
+    background: rgba(78, 173, 101, 0.1); }
+  .theme-light button[data-style=minimal][data-intent=success]:active:not(:disabled):not([disabled]), .theme-light .button[data-style=minimal][data-intent=success]:active:not(:disabled):not([disabled]) {
+    border-color: rgba(45, 187, 80, 0.4);
+    background: rgba(45, 187, 80, 0.1); }
+  .theme-dark button[data-style=minimal][data-intent=success]:active:not(:disabled):not([disabled]), .theme-dark .button[data-style=minimal][data-intent=success]:active:not(:disabled):not([disabled]) {
+    border-color: rgba(78, 173, 101, 0.4);
+    background: rgba(78, 173, 101, 0.1); }
+  .theme-light button[data-style=minimal][data-intent=danger], .theme-light .button[data-style=minimal][data-intent=danger] {
+    background: rgba(224, 49, 89, 0.1); }
+  .theme-dark button[data-style=minimal][data-intent=danger], .theme-dark .button[data-style=minimal][data-intent=danger] {
+    background: rgba(215, 79, 111, 0.1); }
+  .theme-light button[data-style=minimal][data-intent=danger]:hover:not(:disabled):not([disabled]), .theme-light .button[data-style=minimal][data-intent=danger]:hover:not(:disabled):not([disabled]) {
+    border-color: rgba(224, 49, 89, 0.3);
+    background: rgba(224, 49, 89, 0.1); }
+  .theme-dark button[data-style=minimal][data-intent=danger]:hover:not(:disabled):not([disabled]), .theme-dark .button[data-style=minimal][data-intent=danger]:hover:not(:disabled):not([disabled]) {
+    border-color: rgba(215, 79, 111, 0.3);
+    background: rgba(215, 79, 111, 0.1); }
+  .theme-light button[data-style=minimal][data-intent=danger]:active:not(:disabled):not([disabled]), .theme-light .button[data-style=minimal][data-intent=danger]:active:not(:disabled):not([disabled]) {
+    border-color: rgba(224, 49, 89, 0.4);
+    background: rgba(224, 49, 89, 0.1); }
+  .theme-dark button[data-style=minimal][data-intent=danger]:active:not(:disabled):not([disabled]), .theme-dark .button[data-style=minimal][data-intent=danger]:active:not(:disabled):not([disabled]) {
+    border-color: rgba(215, 79, 111, 0.4);
+    background: rgba(215, 79, 111, 0.1); }
+  .theme-light button[data-style=minimal][data-intent=info], .theme-light .button[data-style=minimal][data-intent=info] {
+    background: rgba(14, 116, 222, 0.1); }
+  .theme-dark button[data-style=minimal][data-intent=info], .theme-dark .button[data-style=minimal][data-intent=info] {
+    background: rgba(39, 135, 236, 0.1); }
+  .theme-light button[data-style=minimal][data-intent=info]:hover:not(:disabled):not([disabled]), .theme-light .button[data-style=minimal][data-intent=info]:hover:not(:disabled):not([disabled]) {
+    border-color: rgba(14, 116, 222, 0.3);
+    background: rgba(14, 116, 222, 0.1); }
+  .theme-dark button[data-style=minimal][data-intent=info]:hover:not(:disabled):not([disabled]), .theme-dark .button[data-style=minimal][data-intent=info]:hover:not(:disabled):not([disabled]) {
+    border-color: rgba(39, 135, 236, 0.3);
+    background: rgba(39, 135, 236, 0.1); }
+  .theme-light button[data-style=minimal][data-intent=info]:active:not(:disabled):not([disabled]), .theme-light .button[data-style=minimal][data-intent=info]:active:not(:disabled):not([disabled]) {
+    border-color: rgba(14, 116, 222, 0.4);
+    background: rgba(14, 116, 222, 0.1); }
+  .theme-dark button[data-style=minimal][data-intent=info]:active:not(:disabled):not([disabled]), .theme-dark .button[data-style=minimal][data-intent=info]:active:not(:disabled):not([disabled]) {
+    border-color: rgba(39, 135, 236, 0.4);
+    background: rgba(39, 135, 236, 0.1); }
+  .theme-light button[data-style=minimal][data-intent=warning], .theme-light .button[data-style=minimal][data-intent=warning] {
+    background: rgba(226, 178, 45, 0.1); }
+  .theme-dark button[data-style=minimal][data-intent=warning], .theme-dark .button[data-style=minimal][data-intent=warning] {
+    background: rgba(204, 169, 71, 0.1); }
+  .theme-light button[data-style=minimal][data-intent=warning]:hover:not(:disabled):not([disabled]), .theme-light .button[data-style=minimal][data-intent=warning]:hover:not(:disabled):not([disabled]) {
+    border-color: rgba(226, 178, 45, 0.3);
+    background: rgba(226, 178, 45, 0.1); }
+  .theme-dark button[data-style=minimal][data-intent=warning]:hover:not(:disabled):not([disabled]), .theme-dark .button[data-style=minimal][data-intent=warning]:hover:not(:disabled):not([disabled]) {
+    border-color: rgba(204, 169, 71, 0.3);
+    background: rgba(204, 169, 71, 0.1); }
+  .theme-light button[data-style=minimal][data-intent=warning]:active:not(:disabled):not([disabled]), .theme-light .button[data-style=minimal][data-intent=warning]:active:not(:disabled):not([disabled]) {
+    border-color: rgba(226, 178, 45, 0.4);
+    background: rgba(226, 178, 45, 0.1); }
+  .theme-dark button[data-style=minimal][data-intent=warning]:active:not(:disabled):not([disabled]), .theme-dark .button[data-style=minimal][data-intent=warning]:active:not(:disabled):not([disabled]) {
+    border-color: rgba(204, 169, 71, 0.4);
+    background: rgba(204, 169, 71, 0.1); }
+  button[data-size=tiny], .button[data-size=tiny] {
+    font-size: .6rem;
+    text-transform: uppercase;
+    letter-spacing: .15em;
+    font-weight: bold; }
+  button[data-size=small], .button[data-size=small] {
+    font-size: .83rem; }
+  button[data-size=medium], .button[data-size=medium] {
+    font-size: 1rem; }
+  button[data-size=large], .button[data-size=large] {
+    font-size: 1.2rem; }
+  button[data-size=massive], .button[data-size=massive] {
+    font-size: 1.8rem;
+    font-weight: 300; }
 
 .symbol {
   display: block;

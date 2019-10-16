@@ -2,6 +2,10 @@
     ul {
         display: block;
         font-size: 0;
+        padding: 2rem;
+        @include themify($themes) {
+            background: darken(themed('background'), 5%);
+        }
     }
     li {
         display: inline-block;
@@ -11,13 +15,13 @@
         text-align: center;
         span {
             display: block;
-            font-size: .6rem;
+            font-size: .7rem;
             white-space: nowrap;
             margin-top: .3rem;
         }
         svg {
-            height: 1.2rem;
-            width: 1.2rem;
+            height: 2rem;
+            width: 2rem;
         }
     }
 }
