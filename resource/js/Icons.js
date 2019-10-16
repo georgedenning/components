@@ -5,7 +5,7 @@ export default class Icons {
         this.load();
     }
     load() {
-        $.get('/asset/img/icons.svg', response => {
+        $.get(window.location.href + '/asset/img/icons.svg', response => {
             $('body').prepend(response.documentElement.outerHTML);
         }, 'xml');
     }
