@@ -1,0 +1,69 @@
+.toast {
+    position: relative;
+    width: 100%;
+    max-width: 22rem;
+    padding: .83rem 1.5rem .83rem 5rem;
+    border-radius: .2rem;
+    cursor: pointer;
+
+    &-icon {
+        position: absolute;
+        top: 50%;
+        left: 1rem;
+        width: 3rem;
+        height: 1.43rem;
+        transform: translateY(-50%);
+        @include themify($themes) {
+            fill: rgba(themed('background'), 0.8);
+        }
+    }
+
+    &-title {
+        font-size: 1rem;
+        line-height: 1.5;
+        font-weight: bold;
+        @include themify($themes) {
+            color: rgba(themed('background'), 0.8);
+        }
+    }
+
+    &-text {
+        font-size: .83rem;
+        line-height: 1.5;
+        margin: 0;
+        @include themify($themes) {
+            color: rgba(themed('background'), 0.8);
+        }
+    }
+
+    &-list {
+        position: fixed;
+        top: 0;
+        right: 0;
+        padding: 2rem;
+        z-index: 100;
+        overflow: hidden;
+    }
+    &-item {
+        display: block;
+        &:not(:last-child) {
+            margin-bottom: 1rem;
+        }
+        &:nth-child(n+1) {
+            opacity: .9;
+        }
+        &:nth-child(n+2) {
+            opacity: .7;
+        }
+        &:nth-child(n+3) {
+            opacity: .5;
+        }
+        &:nth-child(n+4) {
+            opacity: 0;
+            visibility: hidden;
+        }
+        &:hover {
+            opacity: 1;
+        }
+    }
+}

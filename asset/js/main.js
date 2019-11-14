@@ -6534,6 +6534,18 @@ eval("\n\n//# sourceURL=webpack:///./resource/icon/zoom-to-fit.svg?");
 
 /***/ }),
 
+/***/ "./resource/js/Clipboard.js":
+/*!**********************************!*\
+  !*** ./resource/js/Clipboard.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Clipboard; });\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _Toast__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Toast */ \"./resource/js/Toast.js\");\n\n\nclass Clipboard {\n  constructor() {\n    jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-clipboard]').off('click').on('click', event => {\n      let $item = jquery__WEBPACK_IMPORTED_MODULE_0___default()(event.target);\n\n      if (!$item.attr('data-clipboard') !== typeof undefined) {\n        $item = $item.closest('[data-clipboard]');\n      }\n\n      Clipboard.copy($item.attr('data-clipboard'), $item);\n    });\n  }\n\n  static copy(text, $referrer = null) {\n    const $input = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<input/>', {\n      class: 'hidden'\n    });\n    jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').append($input);\n    $input.val(text).select();\n    document.execCommand('copy');\n    $input.remove();\n    new _Toast__WEBPACK_IMPORTED_MODULE_1__[\"default\"]({\n      text: 'Copied <strong>' + text + '</strong> to your clipboard.',\n      style: 'success'\n    }, $referrer);\n  }\n\n}\n\n//# sourceURL=webpack:///./resource/js/Clipboard.js?");
+
+/***/ }),
+
 /***/ "./resource/js/Filter.js":
 /*!*******************************!*\
   !*** ./resource/js/Filter.js ***!
@@ -6555,6 +6567,30 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Icons; });\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n\nclass Icons {\n  constructor() {\n    this.load();\n  }\n\n  load() {\n    jquery__WEBPACK_IMPORTED_MODULE_0___default.a.get(window.location.href + '/asset/img/icons.svg', response => {\n      jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').prepend(response.documentElement.outerHTML);\n    }, 'xml');\n  }\n\n}\n\n//# sourceURL=webpack:///./resource/js/Icons.js?");
+
+/***/ }),
+
+/***/ "./resource/js/LimitList.js":
+/*!**********************************!*\
+  !*** ./resource/js/LimitList.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return LimitList; });\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n\nclass LimitList {\n  constructor() {\n    this.options = {\n      attribute: 'data-limit',\n      scroll: true\n    };\n    this.observer = new MutationObserver(mutations => {\n      mutations.forEach(mutation => {\n        if (mutation.type === 'attributes') {\n          this.collapse(jquery__WEBPACK_IMPORTED_MODULE_0___default()(mutation.target));\n        }\n      });\n    });\n    jquery__WEBPACK_IMPORTED_MODULE_0___default()('ul[' + this.options.attribute + ']').each((index, element) => {\n      this.collapse(jquery__WEBPACK_IMPORTED_MODULE_0___default()(element));\n    });\n  }\n\n  collapse($list) {\n    const limit = parseInt($list.attr(this.options.attribute));\n    const listHeight = $list.innerHeight() - $list.height();\n    const itemHeight = $list.find('li').outerHeight();\n    const collapsedHeight = listHeight + itemHeight * limit;\n    $list.css('height', collapsedHeight);\n\n    if (this.options.scroll) {\n      $list.css('overflow-y', 'scroll');\n    }\n\n    this.observer.observe($list[0], {\n      attributes: true\n    });\n  }\n\n}\n\n//# sourceURL=webpack:///./resource/js/LimitList.js?");
+
+/***/ }),
+
+/***/ "./resource/js/Toast.js":
+/*!******************************!*\
+  !*** ./resource/js/Toast.js ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Toast; });\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n // ATTACH TO THE CLOSEST DATA-VIEW ELEMENT\n\nclass Toast {\n  /**\n   * @param {Object} options title, text, icon, status, time\n   */\n  constructor(options, $referrer = null) {\n    this.options = { ...this.default(),\n      ...options\n    };\n    let $parent = jquery__WEBPACK_IMPORTED_MODULE_0___default()('[data-view=\"theme\"]');\n\n    if ($referrer) {\n      $parent = $referrer.closest('[data-view=\"theme\"]');\n    }\n\n    this.$list = $parent.find('.toast-list');\n\n    if (!this.$list.length) {\n      this.$list = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<ul/>', {\n        class: 'toast-list'\n      });\n    }\n\n    if (!$parent.find('.toast-list').length) {\n      if ($parent[0].getBoundingClientRect().right !== jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).width()) {\n        this.$list.css('right', jquery__WEBPACK_IMPORTED_MODULE_0___default()(window).width() - $parent.width());\n      }\n\n      $parent.prepend(this.$list);\n    }\n\n    const $item = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<li/>', {\n      class: 'toast-item'\n    });\n    const $toast = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div/>', {\n      class: 'toast background-' + this.options.style\n    });\n    const $icon = jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').find('svg.icon').eq(0).clone();\n    const $title = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div/>', {\n      class: 'toast-title'\n    });\n    const $text = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<p/>', {\n      class: 'toast-text'\n    });\n    $icon.addClass('toast-icon').find('use').attr('xlink:href', '#icon-' + this.options.icon);\n    $title.html(this.options.title);\n    $text.html(this.options.text);\n    $toast.append($icon);\n    $toast.append($title);\n    $toast.append($text);\n    $item.append($toast);\n\n    if (this.timeout) {\n      setTimeout(() => {\n        $item.remove();\n      }, this.options.timeout);\n    }\n\n    $item.off('click').on('click', e => {\n      let $item = jquery__WEBPACK_IMPORTED_MODULE_0___default()(event.target);\n\n      if (!$item.hasClass('toast')) {\n        $item = $item.closest('.toast');\n      }\n\n      $item.remove();\n    });\n    this.$list.prepend($item);\n  }\n\n  default() {\n    return {\n      title: 'Notification',\n      text: 'You have been notified.',\n      icon: 'notifications',\n      style: 'default',\n      timeout: 5000\n    };\n  }\n\n}\n\n//# sourceURL=webpack:///./resource/js/Toast.js?");
 
 /***/ }),
 
@@ -6590,7 +6626,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Views__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Views */ \"./resource/js/Views.js\");\n/* harmony import */ var _Icons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Icons */ \"./resource/js/Icons.js\");\n/* harmony import */ var _Filter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Filter */ \"./resource/js/Filter.js\");\n\n\n\nnew _Views__WEBPACK_IMPORTED_MODULE_0__[\"default\"]().render().then(results => {\n  window.Icons = new _Icons__WEBPACK_IMPORTED_MODULE_1__[\"default\"]();\n  window.Filter = new _Filter__WEBPACK_IMPORTED_MODULE_2__[\"default\"]();\n});\n\n//# sourceURL=webpack:///./resource/js/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Views__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Views */ \"./resource/js/Views.js\");\n/* harmony import */ var _Icons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Icons */ \"./resource/js/Icons.js\");\n/* harmony import */ var _Filter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Filter */ \"./resource/js/Filter.js\");\n/* harmony import */ var _LimitList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./LimitList */ \"./resource/js/LimitList.js\");\n/* harmony import */ var _Clipboard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Clipboard */ \"./resource/js/Clipboard.js\");\n\n\n\n\n\nnew _Views__WEBPACK_IMPORTED_MODULE_0__[\"default\"]().render().then(results => {\n  window.Icons = new _Icons__WEBPACK_IMPORTED_MODULE_1__[\"default\"]();\n  window.Filter = new _Filter__WEBPACK_IMPORTED_MODULE_2__[\"default\"]();\n  window.LimitList = new _LimitList__WEBPACK_IMPORTED_MODULE_3__[\"default\"]();\n  window.Clipboard = new _Clipboard__WEBPACK_IMPORTED_MODULE_4__[\"default\"]();\n});\n\n//# sourceURL=webpack:///./resource/js/main.js?");
 
 /***/ }),
 
