@@ -9,4 +9,6 @@ import Clipboard from './Clipboard';
     window.Filter = new Filter();
     window.LimitList = new LimitList();
     window.Clipboard = new Clipboard();
+
+    require('./section/toasts');
 });

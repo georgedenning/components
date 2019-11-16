@@ -4,7 +4,7 @@
     max-width: 22rem;
     padding: .83rem 1.5rem .83rem 5rem;
     border-radius: .2rem;
-    cursor: pointer;
+    cursor: default;
 
     &-icon {
         position: absolute;
@@ -14,7 +14,7 @@
         height: 1.43rem;
         transform: translateY(-50%);
         @include themify($themes) {
-            fill: rgba(themed('background'), 0.8);
+            fill: inherit;
         }
     }
 
@@ -22,27 +22,23 @@
         font-size: 1rem;
         line-height: 1.5;
         font-weight: bold;
-        @include themify($themes) {
-            color: rgba(themed('background'), 0.8);
-        }
+        fill: inherit;
     }
 
     &-text {
         font-size: .83rem;
         line-height: 1.5;
         margin: 0;
-        @include themify($themes) {
-            color: rgba(themed('background'), 0.8);
-        }
+        fill: inherit;
     }
 
     &-list {
         position: fixed;
         top: 0;
         right: 0;
+        height: 0;
         padding: 2rem;
         z-index: 100;
-        overflow: hidden;
     }
     &-item {
         display: block;

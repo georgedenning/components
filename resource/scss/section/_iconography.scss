@@ -13,6 +13,13 @@
         width: 20%;
         padding: 2rem 1rem;
         text-align: center;
+        cursor: pointer;
+        border-radius: .2rem;
+        &:hover {
+            @include themify($themes) {
+                background: themed('background');
+            }
+        }
         span {
             display: block;
             font-size: .7rem;

@@ -1,0 +1,14 @@
+.section-toasts {
+    ul {
+        display: block;
+        font-size: 0;
+    }
+    li {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+        &:not(:last-child) {
+            margin-bottom: 2rem;
+        }
+    }
+}
