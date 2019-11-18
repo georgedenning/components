@@ -1,0 +1,165 @@
+.field {
+    position: relative;
+    border: .1rem solid;
+    min-height: 2.6rem;
+    font-size: 1rem;
+    outline: none;
+
+    &-before {
+        position: absolute;
+        top: .8rem;
+        left: 0;
+        height: 1rem;
+        width: 3rem;
+        text-align: center;
+        @include themify($themes) {
+            fill: inherit;
+        }
+    }
+
+    &-after {
+        position: absolute;
+        top: .8rem;
+        right: 0;
+        height: 1rem;
+        width: 3rem;
+        text-align: center;
+        @include themify($themes) {
+            fill: inherit;
+        }
+    }
+
+    input, textarea {
+        display: block;
+        border: none;
+        background: none;
+        color: inherit;
+        font-size: inherit;
+        outline: inherit;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        padding: .3rem .83rem;
+
+        &::placeholder {
+            @include themify($themes) {
+                color: rgba(themed('text'), .4);
+            }
+        }
+    }
+
+    &[data-before^="icon-"] {
+        input, textarea {
+            padding-left: 3rem;
+        }
+    }
+
+    &[data-after^="icon-"] {
+        input, textarea {
+            padding-right: 3rem;
+        }
+    }
+
+    &[data-intent] {
+        @include themify($themes) {
+            color: themed('text');
+            background: darken(themed('background'), 3%);
+        }
+
+        &:hover:not(:disabled):not([disabled]) {
+            @include themify($themes) {
+                color: themed('text');
+                background: darken(themed('background'), 3%);
+            }
+        }
+        &:active:not(:disabled):not([disabled]) {
+            @include themify($themes) {
+                color: themed('text');
+                background: darken(themed('background'), 3%);
+            }
+        }
+    }
+
+    &[data-intent=default] {
+        @include themify($themes) {
+            fill: rgba(themed('text'), .7);
+            border-color: darken(themed('background'), 8%);
+        }
+        &:hover:not(:disabled):not([disabled]) {
+            @include themify($themes) {
+                fill: rgba(themed('text'), .7);
+            }
+        }
+    }
+    &[data-intent=success] {
+        @include themify($themes) {
+            fill: themed('success');
+            border-color: themed('success');
+        }
+        &:hover:not(:disabled):not([disabled]) {
+            @include themify($themes) {
+                fill: themed('success');
+            }
+        }
+    }
+    &[data-intent=danger] {
+        @include themify($themes) {
+            fill: themed('danger');
+            border-color: themed('danger');
+        }
+
+        &:hover:not(:disabled):not([disabled]) {
+            @include themify($themes) {
+                fill: themed('danger');
+            }
+        }
+    }
+    &[data-intent=info] {
+        @include themify($themes) {
+            fill: themed('info');
+            border-color: themed('info');
+        }
+
+        &:hover:not(:disabled):not([disabled]) {
+            @include themify($themes) {
+                fill: themed('info');
+            }
+        }
+    }
+    &[data-intent=warning] {
+        @include themify($themes) {
+            fill: themed('warning');
+            border-color: themed('warning');
+        }
+
+        &:hover:not(:disabled):not([disabled]) {
+            @include themify($themes) {
+                fill: themed('warning');
+            }
+        }
+    }
+
+    &[data-state=focus] {
+        @include themify($themes) {
+            fill: themed('primary');
+            border-color: themed('primary');
+        }
+
+        &:hover:not(:disabled):not([disabled]) {
+            @include themify($themes) {
+                fill: themed('primary');
+            }
+        }
+    }
+
+    &[data-state=disabled] {
+        @include themify($themes) {
+            opacity: .3;
+        }
+        input, textarea {
+            pointer-events: none;
+        }
+    }
+}

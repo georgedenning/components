@@ -1,0 +1,11 @@
+.section-fields {
+    ul {
+        display: block;
+        margin-bottom: 2rem;
+    }
+    li {
+        &:not(:last-child) {
+            margin-bottom: 2rem;
+        }
+    }
+}

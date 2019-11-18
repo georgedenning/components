@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import Toast from './../Toast';
+import Toast from '../components/Toast';
 
 $('.section-toasts .toast').off('click').on('click', () => {
     let $item = $(event.target);

@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import Toast from './Toast';
+import Toast from './components/Toast';
 
 export default class Clipboard {
     constructor() {

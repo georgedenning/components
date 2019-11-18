@@ -10,5 +10,6 @@ import Clipboard from './Clipboard';
     window.LimitList = new LimitList();
     window.Clipboard = new Clipboard();
 
+    require('./section/fields');
     require('./section/toasts');
 });
