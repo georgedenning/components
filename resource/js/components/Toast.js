@@ -6,7 +6,6 @@ export default class Toast {
      */
     constructor(options, $referrer = null) {
         this.options = { ...this.default(), ...options };
-        this.delayTimer = null;
 
         let $parent = $('[data-view="theme"]');
 
@@ -36,7 +35,8 @@ export default class Toast {
             'data-intent': this.options.style
         });
 
-        const $icon = $('body').find('svg.icon').eq(0).clone();
+        const $icon = $('body').find('svg.icon').eq(0).clone().removeClass();
+        const $close = $icon.clone();
 
         const $title = $('<div/>', {
             'class': 'toast-title'
@@ -47,17 +47,21 @@ export default class Toast {
         });
 
         $icon.addClass('toast-icon').find('use').attr('xlink:href', '#icon-' + this.options.icon);
+        $close.addClass('toast-close').find('use').attr('xlink:href', '#icon-cross');
 
         $title.html(this.options.title);
         $text.html(this.options.text);
 
+        $close.off('click').on('click', () => {
+            $item.remove();
+        });
+
+        $toast.append($close);
         $toast.append($icon);
         $toast.append($title);
         $toast.append($text);
 
         $item.append($toast);
-
-        this.removeAfter(this.options.timeout, $item);
 
         this.$list.prepend($item);
     }
@@ -67,38 +71,7 @@ export default class Toast {
             title: 'Notification',
             text: 'You have been notified.',
             icon: 'notifications',
-            style: 'default',
-            timeout: 5000
+            style: 'default'
         }
-    }
-
-    removeAfter(time, $item) {
-        if (! time) {
-            return false;
-        }
-
-        clearTimeout(this.delayTimer);
-        this.delayTimer = setTimeout(() => {
-            this.remove($item)
-        }, time);
-    }
-
-    remove($item) {
-        $item.addClass('fade-out');
-
-        this.removeTimer = setTimeout(() => {
-            $item.remove();
-        }, this.options.timeout);
-
-        $item.off('mouseover').on('mouseover', () => {
-            $item.removeClass('fade-out');
-            clearTimeout(this.delayTimer);
-            clearTimeout(this.removeTimer);
-        });
-
-        $item.off('mouseleave').on('mouseleave', () => {
-            $item.addClass('fade-out');
-            this.removeAfter(this.options.timeout, $item);
-        });
     }
 }

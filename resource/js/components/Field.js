@@ -7,8 +7,6 @@ export default class Field {
     constructor(input) {
         this.$input = $(input);
 
-        console.log(this.$input.attr('data-state'))
-
         this.$field = $('<div/>', {
             'class': 'field',
             'data-type': this.$input.attr('type') || 'text',
@@ -22,13 +20,13 @@ export default class Field {
         this.$after = this.$field.attr('data-after');
 
         if (this.$before) {
-            this.$before = $('body').find('svg.icon').eq(0).clone();
+            this.$before = $('body').find('svg.icon').eq(0).clone().removeClass();
             this.$before.addClass('field-before');
             this.$before.find('use').attr('xlink:href', '#' + this.$field.attr('data-before'));
         }
 
         if (this.$after) {
-            this.$after = $('body').find('svg.icon').eq(0).clone();
+            this.$after = $('body').find('svg.icon').eq(0).clone().removeClass();
             this.$after.addClass('field-after');
             this.$after.find('use').attr('xlink:href', '#' + this.$field.attr('data-after'));
         }

@@ -156,22 +156,22 @@
   color: rgba(28, 30, 38, 0.8);
   background: #d5d9e9; }
 
-.theme-light [data-intent=default]:hover:not(:disabled):not([disabled]):not(.fade-out) {
+.theme-light [data-intent=default]:hover:not(:disabled):not([disabled]):not(.toast) {
   fill: rgba(244, 245, 249, 0.9);
   color: rgba(244, 245, 249, 0.9);
   background: #1C1E26; }
 
-.theme-dark [data-intent=default]:hover:not(:disabled):not([disabled]):not(.fade-out) {
+.theme-dark [data-intent=default]:hover:not(:disabled):not([disabled]):not(.toast) {
   fill: rgba(28, 30, 38, 0.9);
   color: rgba(28, 30, 38, 0.9);
   background: #E6E8F2; }
 
-.theme-light [data-intent=default]:active:not(:disabled):not([disabled]):not(.fade-out) {
+.theme-light [data-intent=default]:active:not(:disabled):not([disabled]):not(.toast) {
   fill: rgba(244, 245, 249, 0.9);
   color: rgba(244, 245, 249, 0.9);
   background: #383c4c; }
 
-.theme-dark [data-intent=default]:active:not(:disabled):not([disabled]):not(.fade-out) {
+.theme-dark [data-intent=default]:active:not(:disabled):not([disabled]):not(.toast) {
   fill: rgba(28, 30, 38, 0.9);
   color: rgba(28, 30, 38, 0.9);
   background: white; }
@@ -186,22 +186,22 @@
   color: white;
   background: #a624a6; }
 
-.theme-light [data-intent=primary]:hover:not(:disabled):not([disabled]):not(.fade-out) {
+.theme-light [data-intent=primary]:hover:not(:disabled):not([disabled]):not(.toast) {
   fill: #ffeeff;
   color: #ffeeff;
   background: #b800bb; }
 
-.theme-dark [data-intent=primary]:hover:not(:disabled):not([disabled]):not(.fade-out) {
+.theme-dark [data-intent=primary]:hover:not(:disabled):not([disabled]):not(.toast) {
   fill: white;
   color: white;
   background: #BB29BB; }
 
-.theme-light [data-intent=primary]:active:not(:disabled):not([disabled]):not(.fade-out) {
+.theme-light [data-intent=primary]:active:not(:disabled):not([disabled]):not(.toast) {
   fill: #ffeeff;
   color: #ffeeff;
   background: #d100d5; }
 
-.theme-dark [data-intent=primary]:active:not(:disabled):not([disabled]):not(.fade-out) {
+.theme-dark [data-intent=primary]:active:not(:disabled):not([disabled]):not(.toast) {
   fill: white;
   color: white;
   background: #d02ed0; }
@@ -216,22 +216,22 @@
   color: white;
   background: #469b5b; }
 
-.theme-light [data-intent=success]:hover:not(:disabled):not([disabled]):not(.fade-out) {
+.theme-light [data-intent=success]:hover:not(:disabled):not([disabled]):not(.toast) {
   fill: white;
   color: white;
   background: #2dbb50; }
 
-.theme-dark [data-intent=success]:hover:not(:disabled):not([disabled]):not(.fade-out) {
+.theme-dark [data-intent=success]:hover:not(:disabled):not([disabled]):not(.toast) {
   fill: white;
   color: white;
   background: #4ead65; }
 
-.theme-light [data-intent=success]:active:not(:disabled):not([disabled]):not(.fade-out) {
+.theme-light [data-intent=success]:active:not(:disabled):not([disabled]):not(.toast) {
   fill: white;
   color: white;
   background: #33ce5a; }
 
-.theme-dark [data-intent=success]:active:not(:disabled):not([disabled]):not(.fade-out) {
+.theme-dark [data-intent=success]:active:not(:disabled):not([disabled]):not(.toast) {
   fill: white;
   color: white;
   background: #5eb673; }
@@ -246,22 +246,22 @@
   color: white;
   background: #d23a5e; }
 
-.theme-light [data-intent=danger]:hover:not(:disabled):not([disabled]):not(.fade-out) {
+.theme-light [data-intent=danger]:hover:not(:disabled):not([disabled]):not(.toast) {
   fill: white;
   color: white;
   background: #e03159; }
 
-.theme-dark [data-intent=danger]:hover:not(:disabled):not([disabled]):not(.fade-out) {
+.theme-dark [data-intent=danger]:hover:not(:disabled):not([disabled]):not(.toast) {
   fill: white;
   color: white;
   background: #D74F6F; }
 
-.theme-light [data-intent=danger]:active:not(:disabled):not([disabled]):not(.fade-out) {
+.theme-light [data-intent=danger]:active:not(:disabled):not([disabled]):not(.toast) {
   fill: white;
   color: white;
   background: #e3476b; }
 
-.theme-dark [data-intent=danger]:active:not(:disabled):not([disabled]):not(.fade-out) {
+.theme-dark [data-intent=danger]:active:not(:disabled):not([disabled]):not(.toast) {
   fill: white;
   color: white;
   background: #dc6480; }
@@ -276,22 +276,22 @@
   color: white;
   background: #147ae5; }
 
-.theme-light [data-intent=info]:hover:not(:disabled):not([disabled]):not(.fade-out) {
+.theme-light [data-intent=info]:hover:not(:disabled):not([disabled]):not(.toast) {
   fill: white;
   color: white;
   background: #0e74de; }
 
-.theme-dark [data-intent=info]:hover:not(:disabled):not([disabled]):not(.fade-out) {
+.theme-dark [data-intent=info]:hover:not(:disabled):not([disabled]):not(.toast) {
   fill: white;
   color: white;
   background: #2787EC; }
 
-.theme-light [data-intent=info]:active:not(:disabled):not([disabled]):not(.fade-out) {
+.theme-light [data-intent=info]:active:not(:disabled):not([disabled]):not(.toast) {
   fill: white;
   color: white;
   background: #1581f0; }
 
-.theme-dark [data-intent=info]:active:not(:disabled):not([disabled]):not(.fade-out) {
+.theme-dark [data-intent=info]:active:not(:disabled):not([disabled]):not(.toast) {
   fill: white;
   color: white;
   background: #3e94ee; }
@@ -306,22 +306,22 @@
   color: white;
   background: #c39e36; }
 
-.theme-light [data-intent=warning]:hover:not(:disabled):not([disabled]):not(.fade-out) {
+.theme-light [data-intent=warning]:hover:not(:disabled):not([disabled]):not(.toast) {
   fill: white;
   color: white;
   background: #e2b22d; }
 
-.theme-dark [data-intent=warning]:hover:not(:disabled):not([disabled]):not(.fade-out) {
+.theme-dark [data-intent=warning]:hover:not(:disabled):not([disabled]):not(.toast) {
   fill: white;
   color: white;
   background: #cca947; }
 
-.theme-light [data-intent=warning]:active:not(:disabled):not([disabled]):not(.fade-out) {
+.theme-light [data-intent=warning]:active:not(:disabled):not([disabled]):not(.toast) {
   fill: white;
   color: white;
   background: #e5ba43; }
 
-.theme-dark [data-intent=warning]:active:not(:disabled):not([disabled]):not(.fade-out) {
+.theme-dark [data-intent=warning]:active:not(:disabled):not([disabled]):not(.toast) {
   fill: white;
   color: white;
   background: #d2b25b; }
@@ -1089,7 +1089,23 @@ hr {
   max-width: 22rem;
   padding: .83rem 1.5rem .83rem 5rem;
   border-radius: .2rem;
-  cursor: default; }
+  cursor: default;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none; }
+  .toast-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1.6rem;
+    height: 1.6rem;
+    padding: 0.3rem;
+    cursor: pointer; }
+    .theme-light .toast-close {
+      fill: inherit; }
+    .theme-dark .toast-close {
+      fill: inherit; }
   .toast-icon {
     position: absolute;
     top: 50%;

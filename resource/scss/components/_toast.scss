@@ -5,6 +5,20 @@
     padding: .83rem 1.5rem .83rem 5rem;
     border-radius: .2rem;
     cursor: default;
+    user-select: none;
+
+    &-close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 1.6rem;
+        height: 1.6rem;
+        padding: 0.3rem;
+        cursor: pointer;
+        @include themify($themes) {
+            fill: inherit;
+        }
+    }
 
     &-icon {
         position: absolute;

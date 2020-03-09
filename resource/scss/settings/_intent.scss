@@ -4,14 +4,14 @@
         color: rgba(themed('background'), 0.8);
         background: darken(themed('text'), 5%);
     }
-    &:hover:not(:disabled):not([disabled]):not(.fade-out) {
+    &:hover:not(:disabled):not([disabled]):not(.toast) {
         @include themify($themes) {
             fill: rgba(themed('background'), 0.9);
             color: rgba(themed('background'), 0.9);
             background: themed('text');
         }
     }
-    &:active:not(:disabled):not([disabled]):not(.fade-out) {
+    &:active:not(:disabled):not([disabled]):not(.toast) {
         @include themify($themes) {
             fill: rgba(themed('background'), 0.9);
             color: rgba(themed('background'), 0.9);
@@ -25,14 +25,14 @@
         color: lighten(themed('primary'), 60%);
         background: darken(themed('primary'), 5%);
     }
-    &:hover:not(:disabled):not([disabled]):not(.fade-out) {
+    &:hover:not(:disabled):not([disabled]):not(.toast) {
         @include themify($themes) {
             fill: lighten(themed('primary'), 60%);
             color: lighten(themed('primary'), 60%);
             background: themed('primary');
         }
     }
-    &:active:not(:disabled):not([disabled]):not(.fade-out) {
+    &:active:not(:disabled):not([disabled]):not(.toast) {
         @include themify($themes) {
             fill: lighten(themed('primary'), 60%);
             color: lighten(themed('primary'), 60%);
@@ -46,14 +46,14 @@
         color: lighten(themed('success'), 60%);
         background: darken(themed('success'), 5%);
     }
-    &:hover:not(:disabled):not([disabled]):not(.fade-out) {
+    &:hover:not(:disabled):not([disabled]):not(.toast) {
         @include themify($themes) {
             fill: lighten(themed('success'), 60%);
             color: lighten(themed('success'), 60%);
             background: themed('success');
         }
     }
-    &:active:not(:disabled):not([disabled]):not(.fade-out) {
+    &:active:not(:disabled):not([disabled]):not(.toast) {
         @include themify($themes) {
             fill: lighten(themed('success'), 60%);
             color: lighten(themed('success'), 60%);
@@ -67,14 +67,14 @@
         color: lighten(themed('danger'), 60%);
         background: darken(themed('danger'), 5%);
     }
-    &:hover:not(:disabled):not([disabled]):not(.fade-out) {
+    &:hover:not(:disabled):not([disabled]):not(.toast) {
         @include themify($themes) {
             fill: lighten(themed('danger'), 60%);
             color: lighten(themed('danger'), 60%);
             background: themed('danger');
         }
     }
-    &:active:not(:disabled):not([disabled]):not(.fade-out) {
+    &:active:not(:disabled):not([disabled]):not(.toast) {
         @include themify($themes) {
             fill: lighten(themed('danger'), 60%);
             color: lighten(themed('danger'), 60%);
@@ -88,14 +88,14 @@
         color: lighten(themed('info'), 60%);
         background: darken(themed('info'), 5%);
     }
-    &:hover:not(:disabled):not([disabled]):not(.fade-out) {
+    &:hover:not(:disabled):not([disabled]):not(.toast) {
         @include themify($themes) {
             fill: lighten(themed('info'), 60%);
             color: lighten(themed('info'), 60%);
             background: themed('info');
         }
     }
-    &:active:not(:disabled):not([disabled]):not(.fade-out) {
+    &:active:not(:disabled):not([disabled]):not(.toast) {
         @include themify($themes) {
             fill: lighten(themed('info'), 60%);
             color: lighten(themed('info'), 60%);
@@ -109,14 +109,14 @@
         color: lighten(themed('warning'), 60%);
         background: darken(themed('warning'), 5%);
     }
-    &:hover:not(:disabled):not([disabled]):not(.fade-out) {
+    &:hover:not(:disabled):not([disabled]):not(.toast) {
         @include themify($themes) {
             fill: lighten(themed('warning'), 60%);
             color: lighten(themed('warning'), 60%);
             background: themed('warning');
         }
     }
-    &:active:not(:disabled):not([disabled]):not(.fade-out) {
+    &:active:not(:disabled):not([disabled]):not(.toast) {
         @include themify($themes) {
             fill: lighten(themed('warning'), 60%);
             color: lighten(themed('warning'), 60%);
