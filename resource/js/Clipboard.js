@@ -25,7 +25,7 @@ export default class Clipboard {
         $input.remove();
 
         new Toast({
-            text: 'Copied <strong>' + text + '</strong> to your clipboard.',
+            text: '<strong>' + text + '</strong> copied to your clipboard.',
             style: 'success'
         }, $referrer);
     }

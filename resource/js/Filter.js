@@ -3,10 +3,16 @@ import $ from 'jquery';
 export default class Filter {
     constructor() {
         $('.section-filter').each((i, section) => {
-            const $input = $('<input/>', { 'type': 'search' });
+            const $input = $('<input />', {
+                'type': 'text',
+                'class': 'field',
+                'data-before': 'icon-search',
+                'placeholder': 'Filter'
+            });
+
             $input.insertBefore($(section));
             const $items = $(section).find('li');
-
+ 
             $input.on('keyup', (e) => {
                 const value = $input.val().toLowerCase();
                 const terms = value.split(' ').filter(Boolean);
