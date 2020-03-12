@@ -5,7 +5,7 @@
     padding: .83rem 1.5rem .83rem 5rem;
     border-radius: .2rem;
     cursor: default;
-    user-select: none;
+    transition: all .15s ease-in-out;
 
     &-close {
         position: absolute;
@@ -53,27 +53,32 @@
         height: 0;
         padding: 2rem;
         z-index: 100;
+
+        &:hover .toast:not(:hover) {
+            opacity: .5;
+        }
     }
+
     &-item {
         display: block;
         &:not(:last-child) {
             margin-bottom: 1rem;
         }
-        &:nth-child(n+1) {
+        &:nth-child(n+1) .toast {
+            opacity: 1;
+        }
+        &:nth-child(n+2) .toast {
             opacity: .9;
         }
-        &:nth-child(n+2) {
-            opacity: .7;
+        &:nth-child(n+3) .toast {
+            opacity: .8;
         }
-        &:nth-child(n+3) {
-            opacity: .5;
+        &:nth-child(-n+3):hover .toast {
+            opacity: 1;
         }
         &:nth-child(n+4) {
             opacity: 0;
             visibility: hidden;
-        }
-        &:hover {
-            opacity: 1;
         }
     }
 }

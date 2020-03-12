@@ -5,6 +5,8 @@ import LimitList from './LimitList';
 import Clipboard from './Clipboard';
 
 (new Views()).render().then(results => {
+    require('./startup');
+
     window.Icons = new Icons();
     window.Filter = new Filter();
     window.LimitList = new LimitList();
@@ -12,4 +14,5 @@ import Clipboard from './Clipboard';
 
     require('./section/fields');
     require('./section/toasts');
+    require('./section/dialogs');
 });

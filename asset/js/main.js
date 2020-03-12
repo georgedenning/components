@@ -6606,6 +6606,30 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 
 /***/ }),
 
+/***/ "./resource/js/components/Code.js":
+/*!****************************************!*\
+  !*** ./resource/js/components/Code.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Code; });\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n\nclass Code {\n  /**\n   * Create a new Code instance\n   * @param {HTMLObject} code \n   */\n  constructor(code) {\n    this.code = code;\n    this.patterns = {\n      js: {\n        number: {\n          regex: \"(\\\\b\\\\d*\\\\.?\\\\d+\\\\b)\",\n          wrapGroup: 1\n        },\n        variable: {\n          regex: \"(\\\\.)([a-zA-Z_][\\\\w-]*)\\\\b\",\n          wrapGroup: 2\n        },\n        function: {\n          regex: \"(\\\\b[a-zA-Z_][\\\\w-]+?(?= *\\\\())\",\n          wrapGroup: 1\n        },\n        keyword: {\n          regex: [\"(\\\\bdo\\\\b)\", \"(\\\\bif\\\\b)\", \"(\\\\bin\\\\b)\", \"(\\\\bfor\\\\b)\", \"(\\\\blet\\\\b)\", \"(\\\\bnew\\\\b)\", \"(\\\\btry\\\\b)\", \"(\\\\bvar\\\\b)\", \"(\\\\bcase\\\\b)\", \"(\\\\belse\\\\b)\", \"(\\\\benum\\\\b)\", \"(\\\\beval\\\\b)\", \"(\\\\bthis\\\\b)\", \"(\\\\bvoid\\\\b)\", \"(\\\\bwith\\\\b)\", \"(\\\\bawait\\\\b)\", \"(\\\\bbreak\\\\b)\", \"(\\\\bcatch\\\\b)\", \"(\\\\bclass\\\\b)\", \"(\\\\bconst\\\\b)\", \"(\\\\bsuper\\\\b)\", \"(\\\\bthrow\\\\b)\", \"(\\\\bwhile\\\\b)\", \"(\\\\byield\\\\b)\", \"(\\\\bdelete\\\\b)\", \"(\\\\bexport\\\\b)\", \"(\\\\bimport\\\\b)\", \"(\\\\bpublic\\\\b)\", \"(\\\\breturn\\\\b)\", \"(\\\\bstatic\\\\b)\", \"(\\\\bswitch\\\\b)\", \"(\\\\btypeof\\\\b)\", \"(\\\\bdefault\\\\b)\", \"(\\\\bextends\\\\b)\", \"(\\\\bfinally\\\\b)\", \"(\\\\bpackage\\\\b)\", \"(\\\\bprivate\\\\b)\", \"(\\\\bcontinue\\\\b)\", \"(\\\\bdebugger\\\\b)\", \"(\\\\bfunction\\\\b)\", \"(\\\\barguments\\\\b)\", \"(\\\\binterface\\\\b)\", \"(\\\\bprotected\\\\b)\", \"(\\\\bimplements\\\\b)\", \"(\\\\binstanceof\\\\b)\"],\n          wrapGroup: 1\n        }\n      }\n    };\n  }\n\n  highlight() {\n    let parsed = this.code.innerHTML;\n    parsed = parsed.replace(/\\</g, '&lt;');\n    parsed = parsed.replace(/\\>/g, '&gt;');\n    parsed = parsed.replace(/\\\"/g, '&quot;');\n    parsed = parsed.replace(/\\'/g, '&apos;');\n    parsed = parsed.replace(/\\//g, '&sol;');\n    Object.keys(this.patterns.js).forEach(type => {\n      const item = this.patterns.js[type];\n      const prependGroup = item.prependGroup ? '$' + item.prependGroup : '';\n      const wrapGroup = item.wrapGroup ? '<span class=\"js-' + type + '\">$' + item.wrapGroup + '</span>' : '';\n      const appendGroup = item.appendGroup ? '$' + item.appendGroup : '';\n\n      if (typeof item.regex === 'string') {\n        item.regex = [item.regex];\n      }\n\n      item.regex.forEach(regex => {\n        parsed = parsed.replace(new RegExp(regex, 'gm'), prependGroup + wrapGroup + appendGroup);\n        console.log(parsed);\n      });\n    });\n    this.code.innerHTML = parsed;\n  }\n\n}\n\n//# sourceURL=webpack:///./resource/js/components/Code.js?");
+
+/***/ }),
+
+/***/ "./resource/js/components/Dialog.js":
+/*!******************************************!*\
+  !*** ./resource/js/components/Dialog.js ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Dialog; });\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n\nclass Dialog {\n  /**\n   * @param {Object} options\n   */\n  constructor(options) {\n    this.options = { ...this.default(),\n      ...options\n    }; // todo;\n\n    console.log(this.options);\n  }\n\n  cancel() {}\n\n  confirm() {}\n\n  default() {\n    return {\n      title: 'Dialog',\n      text: 'Text displayed underneath the title',\n      actions: [{\n        text: 'Cancel',\n        style: 'minimal',\n        intent: 'default',\n        action: () => {\n          this.cancel();\n        }\n      }, {\n        text: 'Confirm',\n        style: 'default',\n        intent: 'info',\n        action: () => {\n          this.confirm();\n        }\n      }]\n    };\n  }\n\n}\n\n//# sourceURL=webpack:///./resource/js/components/Dialog.js?");
+
+/***/ }),
+
 /***/ "./resource/js/components/Field.js":
 /*!*****************************************!*\
   !*** ./resource/js/components/Field.js ***!
@@ -6615,6 +6639,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Field; });\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n\nclass Field {\n  /**\n   * @param {HTMLObject} input\n   */\n  constructor(input) {\n    this.$input = jquery__WEBPACK_IMPORTED_MODULE_0___default()(input);\n    this.$field = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div/>', {\n      'class': 'field',\n      'data-type': this.$input.attr('type') || 'text',\n      'data-intent': this.$input.attr('data-intent') || 'default',\n      'data-state': this.$input.attr('data-state'),\n      'data-before': this.$input.attr('data-before') || '',\n      'data-after': this.$input.attr('data-after') || ''\n    });\n    this.$before = this.$field.attr('data-before');\n    this.$after = this.$field.attr('data-after');\n\n    if (this.$before) {\n      this.$before = jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').find('svg.icon').eq(0).clone().removeClass();\n      this.$before.addClass('field-before');\n      this.$before.find('use').attr('xlink:href', '#' + this.$field.attr('data-before'));\n    }\n\n    if (this.$after) {\n      this.$after = jquery__WEBPACK_IMPORTED_MODULE_0___default()('body').find('svg.icon').eq(0).clone().removeClass();\n      this.$after.addClass('field-after');\n      this.$after.find('use').attr('xlink:href', '#' + this.$field.attr('data-after'));\n    }\n\n    this.$input.removeAttr('data-intent');\n    this.$input.removeAttr('data-state');\n    this.$input.removeAttr('data-before');\n    this.$input.removeAttr('data-after');\n    this.$input.removeClass('field');\n    this.$input.wrap(this.$field);\n    this.$input.parent().prepend(this.$before);\n    this.$input.parent().append(this.$after);\n    this.$input.on({\n      'blur': () => {\n        if (this.$input.parent().attr('data-state') !== 'disabled') {\n          this.$input.parent().attr('data-state', 'waiting');\n        }\n      },\n      'focus': () => {\n        if (this.$input.parent().attr('data-state') !== 'disabled') {\n          this.$input.parent().attr('data-state', 'focus');\n        }\n      }\n    });\n  }\n\n}\n\n//# sourceURL=webpack:///./resource/js/components/Field.js?");
+
+/***/ }),
+
+/***/ "./resource/js/components/Pre.js":
+/*!***************************************!*\
+  !*** ./resource/js/components/Pre.js ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Pre; });\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _Code__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Code */ \"./resource/js/components/Code.js\");\n\n\nclass Pre {\n  /**\n   * Create a new Pre instance\n   * @param {HTMLObject} pre \n   */\n  constructor(pre) {\n    this.pre = pre;\n    jquery__WEBPACK_IMPORTED_MODULE_0___default()(pre).find('code').each((index, element) => {\n      element.innerHTML = this.indent(element);\n      new _Code__WEBPACK_IMPORTED_MODULE_1__[\"default\"](element).highlight();\n    });\n  }\n  /**\n   * Fixes the indentation of a code block\n   * inside the pre tag\n   */\n\n\n  indent(block) {\n    let lines = block.innerHTML.split(\"\\n\");\n\n    while (!lines[0].trim()) {\n      lines.splice(0, 1);\n    }\n\n    while (!lines[lines.length - 1].trim()) {\n      lines.splice(lines.length - 1, 1);\n    }\n\n    const indent = lines[0].search(/\\S/);\n\n    for (const [index, line] of lines.entries()) {\n      lines[index] = line.slice(indent);\n    }\n\n    return lines.join(\"\\n\");\n  }\n\n}\n\n//# sourceURL=webpack:///./resource/js/components/Pre.js?");
 
 /***/ }),
 
@@ -6638,7 +6674,19 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Views__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Views */ \"./resource/js/Views.js\");\n/* harmony import */ var _Icons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Icons */ \"./resource/js/Icons.js\");\n/* harmony import */ var _Filter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Filter */ \"./resource/js/Filter.js\");\n/* harmony import */ var _LimitList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./LimitList */ \"./resource/js/LimitList.js\");\n/* harmony import */ var _Clipboard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Clipboard */ \"./resource/js/Clipboard.js\");\n\n\n\n\n\nnew _Views__WEBPACK_IMPORTED_MODULE_0__[\"default\"]().render().then(results => {\n  window.Icons = new _Icons__WEBPACK_IMPORTED_MODULE_1__[\"default\"]();\n  window.Filter = new _Filter__WEBPACK_IMPORTED_MODULE_2__[\"default\"]();\n  window.LimitList = new _LimitList__WEBPACK_IMPORTED_MODULE_3__[\"default\"]();\n  window.Clipboard = new _Clipboard__WEBPACK_IMPORTED_MODULE_4__[\"default\"]();\n\n  __webpack_require__(/*! ./section/fields */ \"./resource/js/section/fields.js\");\n\n  __webpack_require__(/*! ./section/toasts */ \"./resource/js/section/toasts.js\");\n});\n\n//# sourceURL=webpack:///./resource/js/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Views__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Views */ \"./resource/js/Views.js\");\n/* harmony import */ var _Icons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Icons */ \"./resource/js/Icons.js\");\n/* harmony import */ var _Filter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Filter */ \"./resource/js/Filter.js\");\n/* harmony import */ var _LimitList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./LimitList */ \"./resource/js/LimitList.js\");\n/* harmony import */ var _Clipboard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Clipboard */ \"./resource/js/Clipboard.js\");\n\n\n\n\n\nnew _Views__WEBPACK_IMPORTED_MODULE_0__[\"default\"]().render().then(results => {\n  __webpack_require__(/*! ./startup */ \"./resource/js/startup.js\");\n\n  window.Icons = new _Icons__WEBPACK_IMPORTED_MODULE_1__[\"default\"]();\n  window.Filter = new _Filter__WEBPACK_IMPORTED_MODULE_2__[\"default\"]();\n  window.LimitList = new _LimitList__WEBPACK_IMPORTED_MODULE_3__[\"default\"]();\n  window.Clipboard = new _Clipboard__WEBPACK_IMPORTED_MODULE_4__[\"default\"]();\n\n  __webpack_require__(/*! ./section/fields */ \"./resource/js/section/fields.js\");\n\n  __webpack_require__(/*! ./section/toasts */ \"./resource/js/section/toasts.js\");\n\n  __webpack_require__(/*! ./section/dialogs */ \"./resource/js/section/dialogs.js\");\n});\n\n//# sourceURL=webpack:///./resource/js/main.js?");
+
+/***/ }),
+
+/***/ "./resource/js/section/dialogs.js":
+/*!****************************************!*\
+  !*** ./resource/js/section/dialogs.js ***!
+  \****************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _components_Dialog__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Dialog */ \"./resource/js/components/Dialog.js\");\n\n\njquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-dialogs .open-dialog').off('click').on('click', () => {\n  new _components_Dialog__WEBPACK_IMPORTED_MODULE_1__[\"default\"]({\n    title: 'Dialog'\n  });\n});\n\n//# sourceURL=webpack:///./resource/js/section/dialogs.js?");
 
 /***/ }),
 
@@ -6663,6 +6711,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var jque
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _components_Toast__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Toast */ \"./resource/js/components/Toast.js\");\n\n\njquery__WEBPACK_IMPORTED_MODULE_0___default()('.section-toasts .toast').off('click').on('click', () => {\n  let $item = jquery__WEBPACK_IMPORTED_MODULE_0___default()(event.target);\n\n  if (!$item.hasClass('toast')) {\n    $item = $item.closest('.toast');\n  }\n\n  new _components_Toast__WEBPACK_IMPORTED_MODULE_1__[\"default\"]({\n    title: 'Notification ' + $item.attr('data-intent'),\n    text: 'You can click this box to hide the current notification',\n    style: $item.attr('data-intent')\n  }, $item);\n});\n\n//# sourceURL=webpack:///./resource/js/section/toasts.js?");
+
+/***/ }),
+
+/***/ "./resource/js/startup.js":
+/*!********************************!*\
+  !*** ./resource/js/startup.js ***!
+  \********************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _components_Pre__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Pre */ \"./resource/js/components/Pre.js\");\n\n\njquery__WEBPACK_IMPORTED_MODULE_0___default()('pre').each((index, element) => {\n  new _components_Pre__WEBPACK_IMPORTED_MODULE_1__[\"default\"](element);\n});\n\n//# sourceURL=webpack:///./resource/js/startup.js?");
 
 /***/ }),
 

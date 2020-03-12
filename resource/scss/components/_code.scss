@@ -5,9 +5,26 @@ code {
     padding: 0 .4rem;
     border-radius: .2rem;
     line-height: 1.7;
-    font-family: monospace;
+    font-family: 'PT Mono', monospace;
     margin-bottom: .2rem;
     @include themify($themes) {
+        color: themed('text-faded');
         background: darken(themed('background'), 3%);
+    }
+
+    .js-number {
+        color: #dc8677;
+    }
+
+    .js-variable {
+        color: #d74f6e;
+    }
+
+    .js-function {
+        color: #17a1af;
+    }
+
+    .js-keyword {
+        color: #aa6acc;
     }
 }

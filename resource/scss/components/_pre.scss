@@ -1,0 +1,21 @@
+pre {
+    display: block;
+    font-size: .83rem;
+    padding: .83rem 1.5rem;
+    border-radius: .2rem;
+    line-height: 0;
+    font-family: 'PT Mono', monospace;
+    margin-bottom: .2rem;
+    white-space: pre-wrap;
+    @include themify($themes) {
+        background: darken(themed('background'), 3%);
+    }
+    code {
+        display: block;
+        padding: 0;
+        border-radius: 0;
+        padding: 0;
+        margin: 0;
+        background: none;
+    }
+}
