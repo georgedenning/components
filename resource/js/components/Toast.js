@@ -4,13 +4,13 @@ export default class Toast {
     /**
      * @param {Object} options title, text, icon, status, time
      */
-    constructor(options, $referrer = null) {
+    constructor(options,referrer = null) {
         this.options = { ...this.default(), ...options };
 
         let $parent = $('[data-view="theme"]');
 
-        if ($referrer) {
-            $parent = $referrer.closest('[data-view="theme"]')
+        if (referrer) {
+            $parent = $(referrer).closest('[data-view="theme"]')
         }
 
         this.$list = $parent.find('.toast-list');

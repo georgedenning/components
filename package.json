@@ -19,6 +19,7 @@
         "autoprefixer": "^9.5.1",
         "babel-loader": "^8.0.6",
         "babel-preset-env": "2.0.0-alpha.20",
+        "clipboard": "^2.0.6",
         "css-loader": "^2.1.1",
         "cssnano": "^4.1.10",
         "debounce": "^1.2.0",

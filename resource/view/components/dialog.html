@@ -4,10 +4,39 @@
     <ul>
         <li>
             <pre>
-                <code>
-                    function roundNumber() {
-                        var rounded = Math.round(200.02)
-                    }
+                <code class="code language-js match-braces">
+                    import $ from 'jquery';
+                    import View from './View';
+                    
+                    export default class Views {
+                        constructor() {
+                            this.loaded = [];
+                            this.load()
+                        }
+                        var key = new Something(param);
+                        render() {
+                            return new Promise(resolve => {
+                                Promise.all(this.loaded).then(() => {
+                                    $(document).ajaxStop(event => {
+                                        resolve();
+                                    });
+                                });
+                            })
+                        }
+                        load() {
+                            new Promise(resolve => {
+                                this.getWaiting().each((i, item) => {
+                                    const load = (new View(item)).render();
+                                    load.then(response => this.load());
+                                    resolve(this.loaded.push(load));
+                                });
+                            })
+                        }
+                        getWaiting() {
+                            var something = true;
+                            return $('[data-view]:not([data-state="loaded"]):not([data-state="waiting"])');
+                        }
+                    }                  
                 </code>
             </pre>
             <div class="dialog">

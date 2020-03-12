@@ -1,4 +1,5 @@
 import $ from 'jquery';
+
 export default class Dialog {
     /**
      * @param {Object} options

@@ -439,29 +439,71 @@ section, .section {
 .section-toasts .toast {
   cursor: pointer; }
 
-code {
+code, .code {
   display: inline-block;
   vertical-align: middle;
+  overflow: auto;
   font-size: .83rem;
   padding: 0 .4rem;
   border-radius: .2rem;
   line-height: 1.7;
   font-family: 'PT Mono', monospace;
-  margin-bottom: .2rem; }
-  .theme-light code {
+  margin-bottom: .2rem;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  -moz-tab-size: 4;
+    -o-tab-size: 4;
+       tab-size: 4;
+  -webkit-hyphens: none;
+      -ms-hyphens: none;
+          hyphens: none; }
+  .theme-light code, .theme-light .code {
     color: #545561;
     background: #eaecf4; }
-  .theme-dark code {
+  .theme-dark code, .theme-dark .code {
     color: #b2b4c5;
     background: #16171d; }
-  code .js-number {
-    color: #dc8677; }
-  code .js-variable {
+  code[class*=language], .code[class*=language] {
     color: #d74f6e; }
-  code .js-function {
-    color: #17a1af; }
-  code .js-keyword {
+  .theme-light code::-moz-selection, .theme-light code ::-moz-selection, .theme-light .code::-moz-selection, .theme-light .code ::-moz-selection {
+    background: #e7e9f2; }
+  .theme-light code::selection, .theme-light code ::selection, .theme-light .code::selection, .theme-light .code ::selection {
+    background: #e7e9f2; }
+  .theme-dark code::-moz-selection, .theme-dark code ::-moz-selection, .theme-dark .code::-moz-selection, .theme-dark .code ::-moz-selection {
+    background: #13151a; }
+  .theme-dark code::selection, .theme-dark code ::selection, .theme-dark .code::selection, .theme-dark .code ::selection {
+    background: #13151a; }
+  .theme-light code-comment, .theme-light code-prologue, .theme-light code-doctype, .theme-light code-cdata, .theme-light code-punctuation, .theme-light .code-comment, .theme-light .code-prologue, .theme-light .code-doctype, .theme-light .code-cdata, .theme-light .code-punctuation {
+    color: #545561; }
+  .theme-dark code-comment, .theme-dark code-prologue, .theme-dark code-doctype, .theme-dark code-cdata, .theme-dark code-punctuation, .theme-dark .code-comment, .theme-dark .code-prologue, .theme-dark .code-doctype, .theme-dark .code-cdata, .theme-dark .code-punctuation {
+    color: #b2b4c5; }
+  code-namespace, .code-namespace {
+    opacity: .7; }
+  code-parameter, .code-parameter {
+    color: #d74f6e; }
+  code-property, code-tag, code-boolean, code-number, code-constant, code-symbol, code-deleted, .code-property, .code-tag, .code-boolean, .code-number, .code-constant, .code-symbol, .code-deleted {
+    color: #dc8677; }
+  code-class-name, code-selector, code-attr-name, code-string, code-char, code-builtin, code-inserted, code-regex, code-important, code-variable, .code-class-name, .code-selector, .code-attr-name, .code-string, .code-char, .code-builtin, .code-inserted, .code-regex, .code-important, .code-variable {
+    color: #e5b28c; }
+  code-operator, code-entity, code-url, code-atrule, code-attr-value, code-keyword, .code-operator, .code-entity, .code-url, .code-atrule, .code-attr-value, .code-keyword {
     color: #aa6acc; }
+  code-function, .code-function {
+    color: #17a1af; }
+  code-important, code-bold, .code-important, .code-bold {
+    font-weight: bold; }
+  code-italic, .code-italic {
+    font-style: italic; }
+  code-entity, .code-entity {
+    cursor: help; }
+  code-toolbar, .code-toolbar {
+    position: relative; }
+    code-toolbar .toolbar, .code-toolbar .toolbar {
+      position: absolute;
+      top: 0;
+      right: 0; }
+    code-toolbar button, .code-toolbar button {
+      font-size: .83rem; }
 
 pre {
   display: block;

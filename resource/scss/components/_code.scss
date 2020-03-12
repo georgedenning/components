@@ -1,30 +1,111 @@
-code {
+code, .code {
     display: inline-block;
     vertical-align: middle;
+	overflow: auto;
     font-size: .83rem;
     padding: 0 .4rem;
     border-radius: .2rem;
     line-height: 1.7;
     font-family: 'PT Mono', monospace;
     margin-bottom: .2rem;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	tab-size: 4;
+	hyphens: none;
     @include themify($themes) {
         color: themed('text-faded');
         background: darken(themed('background'), 3%);
     }
 
-    .js-number {
-        color: #dc8677;
-    }
-
-    .js-variable {
+    &[class*=language] {
         color: #d74f6e;
     }
 
-    .js-function {
+    &::selection, ::selection {
+        @include themify($themes) {
+            background: darken(themed('background'), 4%);
+        }
+    }
+
+    &-comment,
+    &-prologue,
+    &-doctype,
+    &-cdata,
+    &-punctuation {
+        @include themify($themes) {
+            color: themed('text-faded');
+        }
+    }
+
+    &-namespace {
+        opacity: .7;
+    }
+
+    &-parameter {
+        color: #d74f6e;
+    }
+
+    &-property,
+    &-tag,
+    &-boolean,
+    &-number,
+    &-constant,
+    &-symbol,
+    &-deleted {
+        color: #dc8677;
+    }
+
+    &-class-name,
+    &-selector,
+    &-attr-name,
+    &-string,
+    &-char,
+    &-builtin,
+    &-inserted,
+    &-regex,
+    &-important,
+    &-variable {
+        color: #e5b28c;
+    }
+
+    &-operator,
+    &-entity,
+    &-url,
+    &-atrule,
+    &-attr-value,
+    &-keyword {
+        color: #aa6acc;
+    }
+
+    &-function {
         color: #17a1af;
     }
 
-    .js-keyword {
-        color: #aa6acc;
+    &-important,
+    &-bold {
+        font-weight: bold;
+    }
+
+    &-italic {
+        font-style: italic;
+    }
+
+    &-entity {
+        cursor: help;
+    }
+
+    &-toolbar {
+        position: relative;
+
+        .toolbar {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        button {
+            font-size: .83rem;
+        }
     }
 }
