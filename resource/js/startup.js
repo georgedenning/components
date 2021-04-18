@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import Clipboard from 'clipboard';
 import Toast from './components/Toast';
 require('./plugins/prism');
@@ -21,7 +22,15 @@ Prism.plugins.toolbar.registerButton('copy-to-clipboard', env => {
 });
 
 new Clipboard('[data-clipboard]', {
-    'text': element => element.dataset.clipboard
+    'text': element => {
+        let text = element.dataset.clipboard;
+
+        if (text.match(new RegExp(/{.*}/))) {
+            text = style.getPropertyValue('backgroundColor');
+        }
+
+        return text;
+    }
 }).on('success', response => {
     new Toast({
         text: '"' + response.text + '" copied to your clipboard.',

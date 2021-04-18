@@ -149,62 +149,62 @@
 .theme-light [data-intent=default] {
   fill: rgba(244, 245, 249, 0.8);
   color: rgba(244, 245, 249, 0.8);
-  background: #111217; }
+  background-color: #111217; }
 
 .theme-dark [data-intent=default] {
   fill: rgba(28, 30, 38, 0.8);
   color: rgba(28, 30, 38, 0.8);
-  background: #d5d9e9; }
+  background-color: #d5d9e9; }
 
 .theme-light [data-intent=primary] {
   fill: #ffeeff;
   color: #ffeeff;
-  background: #9f00a2; }
+  background-color: #9f00a2; }
 
 .theme-dark [data-intent=primary] {
   fill: white;
   color: white;
-  background: #a624a6; }
+  background-color: #a624a6; }
 
 .theme-light [data-intent=success] {
   fill: white;
   color: white;
-  background: #28a647; }
+  background-color: #28a647; }
 
 .theme-dark [data-intent=success] {
   fill: white;
   color: white;
-  background: #469b5b; }
+  background-color: #469b5b; }
 
 .theme-light [data-intent=danger] {
   fill: white;
   color: white;
-  background: #d7204a; }
+  background-color: #d7204a; }
 
 .theme-dark [data-intent=danger] {
   fill: white;
   color: white;
-  background: #d23a5e; }
+  background-color: #d23a5e; }
 
 .theme-light [data-intent=info] {
   fill: white;
   color: white;
-  background: #0c67c6; }
+  background-color: #0c67c6; }
 
 .theme-dark [data-intent=info] {
   fill: white;
   color: white;
-  background: #147ae5; }
+  background-color: #147ae5; }
 
 .theme-light [data-intent=warning] {
   fill: white;
   color: white;
-  background: #d8a61e; }
+  background-color: #d8a61e; }
 
 .theme-dark [data-intent=warning] {
   fill: white;
   color: white;
-  background: #c39e36; }
+  background-color: #c39e36; }
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
 blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em,
@@ -375,6 +375,9 @@ section, .section {
   flex: 1 0;
   margin: 0 1rem; }
 
+.section-colours .symbol {
+  cursor: pointer; }
+
 .section-iconography ul {
   display: block;
   font-size: 0;
@@ -508,7 +511,7 @@ code, .code {
 pre {
   display: block;
   font-size: .83rem;
-  padding: .83rem 1.5rem;
+  padding: .83rem 1rem;
   border-radius: .2rem;
   line-height: 0;
   font-family: 'PT Mono', monospace;
@@ -1018,12 +1021,11 @@ button, .button {
 .symbol {
   display: block;
   margin-bottom: .2rem;
-  width: 100%; }
+  width: 100%;
+  border-radius: .2rem; }
   .symbol:before {
     display: block;
     padding-top: 100%; }
-  .symbol-rounded {
-    border-radius: .2rem; }
   .symbol-circle {
     border-radius: 100px; }
 
